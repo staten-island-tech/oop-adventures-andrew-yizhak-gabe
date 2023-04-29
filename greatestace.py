@@ -7,7 +7,7 @@ Left to do:
 Note: Gabe and Izzy, add to this if you think of anything else to do.
 """
 
-"""Classes for Characters -- added User, Tom, and Jiminie -- going to add Ace, and then the Mafia Bosses"""
+"""Classes for Characters"""
 import uuid
 class User:
     def __init__(self, id, name):
@@ -15,16 +15,9 @@ class User:
         self.name = name
     new_id = str(uuid.uuid4())
 
-class Tom(User):
-    def __init__(self, id, name, introductory_game):
-        super().__init__(id, name)
-        self.introductory_game = introductory_game
-    def __str__(self):
-        return f"{self.id}, {self.name}, {self.introductory_game}."
-
 class Jiminie(User):
-    def __init__(self, id, name, duplication):
+    def __init__(self, id, name, health):
         super().__init__(id, name)
-        self.duplication = duplication
+        self.health = health
     def __str__(self):
-        return f"{self.id}, {self.name}, {self.duplication}"
+        return f"{self.id}, {self.name}, {self.health}"
