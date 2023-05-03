@@ -1,5 +1,3 @@
-import random
-
 deck=[{'Ace of Michael Whalen':''},{'Ace of Gabriel Liberov':''},{'Ace of Andrew Rosini':''},{'Ace of Izzy Zoltan':''},
       {'Two of Michael Whalen':2},{'Two of Gabriel Liberov':2},{'Two of Andrew Rosini':2},{'Two of Izzy Zoltan':2},
       {'Three of Michael Whalen':3},{'Three of Gabriel Liberov':3},{'Three of Andrew Rosini':3},{'Three of Izzy Zoltan':3},
@@ -10,17 +8,18 @@ deck=[{'Ace of Michael Whalen':''},{'Ace of Gabriel Liberov':''},{'Ace of Andrew
       {'Eight of Michael Whalen':8},{'Eight of Gabriel Liberov':8},{'Eight of Andrew Rosini':8},{'Eight of Izzy Zoltan':8},
       {'Nine of Michael Whalen':9},{'Nine of Gabriel Liberov':9},{'Nine of Andrew Rosini':9},{'Nine of Izzy Zoltan':9},
       {'Ten of Michael Whalen':10},{'Ten of Gabriel Liberov':10},{'Ten of Andrew Rosini':10},{'Ten of Izzy Zoltan':10},
-      {'Jack of Michael Whalen':10},{'Jack of Gabriel Liberov':10},{'Ten of Andrew Rosini':10},{'Ten of Izzy Zoltan':10},
-      ]
+      {'Jack of Michael Whalen':10},{'Jack of Gabriel Liberov':10},{'Jack of Andrew Rosini':10},{'Jack of Izzy Zoltan':10},
+      {'Queen of Michael Whalen':10},{'Queen of Gabriel Liberov':10},{'Queen of Andrew Rosini':10},{'Queen of Izzy Zoltan':10},
+      {'King of Michael Whalen':10},{'King of Gabriel Liberov':10},{'King of Andrew Rosini':10},{'King of Izzy Zoltan':10}]
 
 """"
 THE BANE OF MY EXISTENCE - ACE:
 
-OPTION 1:
  Let the computer choose if it's 1 or 11 at the end of the turn using math. 
- Option 2: let the player choose if it's 1 or 11 at the end of the turn using an input and if function
 
- We're going to need a threshold for the npc to stop drawing cards. 
+
+ We're going to need a threshold for the npc to stop drawing cards. Since the NPC is the dealer, we will make it stop drawing cards when it is tied or greater than 
+ the player.
 """
-#notetoself: 1,2,3,4,5,6,7,8,9,10,jack,queen,king
+#notetoself: 1,2,3,4,5,6,7,8,9,10, jack, queen, and king
 #gabriel liberov Izzy Zoltan Andrew Rosini Michael Whalen 
