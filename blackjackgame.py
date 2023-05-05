@@ -3,28 +3,40 @@ import random
 
 playershand=[[],{'Card Value':0}]
 opponentshand=[]
-cardsdrawn=0
 random.shuffle(blackjack.deck)
 
 def draw(hand,x):
-    global cardsdrawn
-
-    if cardsdrawn==51:
-        cardsdrawn=0
-        random.shuffle(blackjack.deck)
+    random.shuffle(blackjack.deck)
     for cards in range(x):
-        hand.append(blackjack.deck[cardsdrawn])
+        hand[1].append(blackjack.deck[1])
         cardsdrawn+=1
+        if 'Ace' not in blackjack.deck[1]['Card Value']:
+            hand[2]['Card Value']+=blackjack.deck[1]['Card Value']
+        else: 
+         hand.append('and an Ace.')
+        
+def calculate(hand):
+    if len(hand)==3:
+        if 'Card Value' > 20:
+            print('Bust!')
+            global drawmore
+            drawmore=='N'
+            global youlose
+            youlose=True 
+    else:
+        if 'Card Value' > 21:
+            drawmore='N'
+            youlose=True
 
-def cardvalue(hand,x):
-    for i in x:
-        if 'ace' not in hand[cardsdrawn]:
-            hand[cardsdrawn]['Card Value']+=blackjack.deck[cardsdrawn]['Card Value']
-            if hand[cardsdrawn]['']:
-                pass
+def Pass(hand):
+    if len(hand) == 3:
+        if (hand[2]['Card Value']+11)>21:
+            hand[2]['Card Value']+=1
+        else: hand[2]['Card Value']+=11
+    hand.remove('And an Ace')
+
 def game():
-    global cardsdrawn
-    cardsdrawn=0
+    playershand=0
     draw(playershand,2)
     
     print(f'Welcome to the blackjack BETA! Here, this is your starting hand! {playershand}')
@@ -33,7 +45,15 @@ def game():
     drawmore=input(f'Your dealer has the {opponentshand[0]} and one facedown card. Do you want to draw? |Y/N|').upper()[0]
 
     while drawmore == 'Y':
+        calculate(playershand)
         draw(playershand,1)
+
+    if youlose==True:
+        print('You lost! do you want to retry?')
+    else: 
+        Pass(playershand)
+
+
         
 
 """
