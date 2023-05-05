@@ -1,4 +1,7 @@
 import uuid
+import random
+birds = ['Albatross','Auklet','Bittern','Blackbird','Bluebird','Bunting','Chickadee','Cormorant','Cowbird','Crow','Dove','Dowitcher','Duck','Eagle','Egret','Falcon','Finch','Flycatcher','Gallinule','Gnatcatcher','Godwit','Goldeneye','Goldfinch','Goose','Grackle','Grebe','Grosbeak','Gull','Hawk','Heron','Hummingbird','Ibis','Jaeger','Jay','Junco','Kingbird','Kinglet','Kite','Longspur','Loon','Magpie','Meadowlark','Merganser','Murrelet','Nuthatch','Oriole','Owl','Pelican','Petrel','Pewee','Phalarope','Phoebe','Pigeon','Pipit','Plover','Pterodactyl','Puffin','Quail','Rail','Raven','Redstart','Sandpiper','Sapsucker','Scaup','Scoter','Shearwater','Shrike','Skua','Sparrow','Storm-Petrel','Swallow','Swift','Tanager','Teal','Tern','Thrasher','Thrush','Titmouse','Towhee','Turnstone','Vireo','Vulture','Warbler','Wigeon','Woodpecker','Wren','Yellowlegs','Zinglebird']
+
 class User:
     def __init__(self, name):
         self.name = name
@@ -60,3 +63,7 @@ def create_new_boss(name, health, hand, region):
     bosses.append(new_boss)
     for boss in bosses:
         print(boss)
+
+random_bird = random.choice(birds)
+henchman = Henchman(random_bird, 30, "HAND")
+enforcer = Enforcer(random_bird, 90, "HAND")
