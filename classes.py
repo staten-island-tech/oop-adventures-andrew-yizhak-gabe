@@ -1,6 +1,7 @@
 import uuid
 import random
 birds = ['Albatross','Auklet','Bittern','Blackbird','Bluebird','Bunting','Chickadee','Cormorant','Cowbird','Crow','Dove','Dowitcher','Duck','Eagle','Egret','Falcon','Finch','Flycatcher','Gallinule','Gnatcatcher','Godwit','Goldeneye','Goldfinch','Goose','Grackle','Grebe','Grosbeak','Gull','Hawk','Heron','Hummingbird','Ibis','Jaeger','Jay','Junco','Kingbird','Kinglet','Kite','Longspur','Loon','Magpie','Meadowlark','Merganser','Murrelet','Nuthatch','Oriole','Owl','Pelican','Petrel','Pewee','Phalarope','Phoebe','Pigeon','Pipit','Plover','Pterodactyl','Puffin','Quail','Rail','Raven','Redstart','Sandpiper','Sapsucker','Scaup','Scoter','Shearwater','Shrike','Skua','Sparrow','Storm-Petrel','Swallow','Swift','Tanager','Teal','Tern','Thrasher','Thrush','Titmouse','Towhee','Turnstone','Vireo','Vulture','Warbler','Wigeon','Woodpecker','Wren','Yellowlegs','Zinglebird']
+regions = ['Potassium Palace', 'Ripe Ravine', 'Plantain Plateau', 'Fruity Field']
 
 class User:
     def __init__(self, name):
@@ -33,7 +34,7 @@ class Boss(Enforcer):
         super().__init__(name, health, hand)
         self.region = region
     def __str__(self):
-        return f"{self.name}, {self.health}, {self.hand}"
+        return f"{self.name}, {self.health}, {self.hand}, {self.region}"
 
 enemies = []
 henchmen = []
@@ -65,5 +66,16 @@ def create_new_boss(name, health, hand, region):
         print(boss)
 
 random_bird = random.choice(birds)
+random_region = random.choice(regions)
+
 henchman = Henchman(random_bird, 30, "HAND")
-enforcer = Enforcer(random_bird, 90, "HAND")
+enforcer = Enforcer(random_bird, 50, "HAND")
+Tweety = Boss("Tweety", 100, "HAND", random_region) #Player Health After: 150#
+Steve = Boss("S.T.E.V.E", 200, "HAND", random_region) #Player Health After: 250#
+Terrence = Boss("Terrence", 400, "HAND", random_region) #Player Health After: 450#
+Private = Boss("Private", 700, "HAND", "NewNana") #Player Health After: 800#
+Rico = Boss("Rico", 1100, "HAND", "NewNana") #Player Health After: 1350#
+Kowalski = Boss("Kowalski", 1800, "HAND", "NewNana") #Player Health After: 2250#
+Skipper = Boss("Skipper", 3000, "HAND", "NewNana") #Player Health After: 3750#
+King_Ghidorah = Boss("King Ghidorah", 5000, "HAND", random_region) #Player Health After: 6500#
+Biggest_Bird = Boss("Biggest Bird", 10000, "HAND", "Big Bird's Bar")
