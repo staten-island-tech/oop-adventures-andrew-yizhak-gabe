@@ -8,10 +8,10 @@ random.shuffle(blackjack.deck)
 def draw(hand,x):
     random.shuffle(blackjack.deck)
     for cards in range(x):
-        hand[0].append(blackjack.deck[1])
+        hand[0].append(blackjack.deck[0])
         cardsdrawn+=1
-        if 'Ace' not in blackjack.deck[1]['Card Value']:
-            hand[1]['Card Value']+=blackjack.deck[1]['Card Value']
+        if 'Ace' not in blackjack.deck[0]['Card Value']:
+            hand[1]['Card Value']+=blackjack.deck[0]['Card Value']
         else: 
          hand.append('and an Ace.')
         
