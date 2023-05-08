@@ -53,18 +53,4 @@ def game():
     else: 
         Pass(playershand)
 
-
-        
-
-"""
-
-            calculate card value (have fun calcing ace)
-
-            if handvalue > 21: 
-                print('you lose')
-            else:
-                ask user if they want to drawmore
-        
-
- """
 game()
