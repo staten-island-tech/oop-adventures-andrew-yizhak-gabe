@@ -8,10 +8,10 @@ random.shuffle(blackjack.deck)
 def draw(hand,x):
     random.shuffle(blackjack.deck)
     for cards in range(x):
-        hand[1].append(blackjack.deck[1])
+        hand[0].append(blackjack.deck[1])
         cardsdrawn+=1
         if 'Ace' not in blackjack.deck[1]['Card Value']:
-            hand[2]['Card Value']+=blackjack.deck[1]['Card Value']
+            hand[1]['Card Value']+=blackjack.deck[1]['Card Value']
         else: 
          hand.append('and an Ace.')
         
@@ -30,16 +30,16 @@ def calculate(hand):
 
 def Pass(hand):
     if len(hand) == 3:
-        if (hand[2]['Card Value']+11)>21:
-            hand[2]['Card Value']+=1
-        else: hand[2]['Card Value']+=11
+        if (hand[1]['Card Value']+11)>21:
+            hand[1]['Card Value']+=1
+        else: hand[1]['Card Value']+=11
     hand.remove('And an Ace')
 
 def game():
     playershand=0
     draw(playershand,2)
-    
-    print(f'Welcome to the blackjack BETA! Here, this is your starting hand! {playershand}')
+
+    print(f'Welcome to the blackjack BETA! Here, this is your starting hand! {playershand[0]}')
 
     draw(opponentshand,2)
     drawmore=input(f'Your dealer has the {opponentshand[0]} and one facedown card. Do you want to draw? |Y/N|').upper()[0]
