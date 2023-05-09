@@ -11,9 +11,9 @@ def draw(hand,x):
     for cards in range(x):
         
         hand[0].append(blackjack.deck[0])
-        if 'Ace' not in blackjack.deck[0]:
+        if 'Ace' not in blackjack.deck[0].values():
 
-            hand[1]['Card Value']+=int(blackjack.deck[0].values())
+            hand[1]['Card Value']+=blackjack.deck[0].values()
 
         else: 
          
