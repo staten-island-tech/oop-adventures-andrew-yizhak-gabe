@@ -6,16 +6,21 @@ opponentshand=[]
 random.shuffle(blackjack.deck)
 
 def draw(hand,x):
+
     random.shuffle(blackjack.deck)
     for cards in range(x):
+        
         hand[0].append(blackjack.deck[0])
-        cardsdrawn+=1
         if 'Ace' not in blackjack.deck[0]:
-            hand[1]['Card Value']+=blackjack.deck[0].values()
+
+            hand[1]['Card Value']+=int(blackjack.deck[0].values())
+
         else: 
-         hand.append('and an Ace.')
+         
+            hand.append('and an Ace.')
         
 def calculate(hand):
+    
     if len(hand)==3:
         if 'Card Value' > 20:
             print('Bust!')
@@ -36,7 +41,7 @@ def Pass(hand):
     hand.remove('And an Ace')
 
 def game():
-    playershand=0
+    playershand=[[],{'Card Value':0}]
     draw(playershand,2)
 
     print(f'Welcome to the blackjack BETA! Here, this is your starting hand! {playershand[0]}')
