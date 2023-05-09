@@ -12,7 +12,7 @@ deck= [{'Ace of Michael Whalen':'Ace'},{'Ace of Gabriel Liberov':'Ace'},{'Ace of
       {'Queen of Michael Whalen':10},{'Queen of Gabriel Liberov':10},{'Queen of Andrew Rosini':10},{'Queen of Izzy Zoltan':10},
       {'King of Michael Whalen':10},{'King of Gabriel Liberov':10},{'King of Andrew Rosini':10},{'King of Izzy Zoltan':10}]
 
-
+print(deck[10].values())
 
 #notetoself: 1,2,3,4,5,6,7,8,9,10, jack, queen, and king
 #gabriel liberov Izzy Zoltan Andrew Rosini Michael Whalen 
