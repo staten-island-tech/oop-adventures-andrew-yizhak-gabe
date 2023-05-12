@@ -41,7 +41,7 @@ def player_cards():
         print("Blackjack! You get an automatic win!")
 player_cards()
 
-def player_cards():
+def opponents_card():
     cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
     
     face_up_value = random.choice(cards)
@@ -76,4 +76,43 @@ def player_cards():
     print(f"{face_up_card}, and one facedown card.")
     if face_up_value == 11 and random_card == "Jack":
         print("Blackjack! Your opponent gets an automatic win!")
-player_cards()
+opponents_card()
+
+
+
+
+
+
+
+
+
+
+
+
+def player_draw():
+    i = 0.1
+    while i != 0:
+        hit_or_stand = input("Would you like to hit or stand? HIT/STAND: ")
+        if hit_or_stand == "HIT":
+            cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
+            new_card = random.choice(cards)
+            if new_card == 11:
+                current_sum = sum(players_hand)
+                if current_sum + 11 > 21:
+                    new_card == 1
+                    players_hand.append(new_card)
+                else:
+                    new_card = input("Do you want your ace to be valued at 1 or 11? 1/11: ")
+            else:
+                current_sum = sum(players_hand)
+                new_sum = current_sum + new_card
+                if new_sum > 21:
+                    print("Bust! You lose!")
+                    i = 0
+                else:
+                    print(new_sum)
+        elif hit_or_stand == "STAND":
+            card_sum = sum(players_hand)
+            print(f"The total sum of your cards is {card_sum}.")
+            i = 0
+player_draw()
