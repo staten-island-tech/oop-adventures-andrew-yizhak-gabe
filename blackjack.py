@@ -4,12 +4,13 @@ def blackjack():
     
     players_hand = list()
     opponents_hand = list()
+    global card
     cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
+    global suits
     suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
 
+
     def player_cards():
-        cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
-        suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
     
         face_up_value = random.choice(cards)
         if face_up_value == 10:
@@ -120,6 +121,6 @@ def blackjack():
 
     if hit_or_stand == "Stand":
         players_sum = sum(players_hand)
-        print(f"Your total card value is {players_sum}.")
-        print(f"If your opponent has a higher card value than {players_sum}, you will lose. If they have a lower card value than {players_sum}, you will win.")
+        print(f"Your total card value is {players_sum}.\nIf your opponent has a higher card value than {players_sum}, you will lose. If they have a lower card value than {players_sum}, you will win.")
+
 blackjack()
