@@ -1,17 +1,125 @@
-"""deck = [{'Ace of Michael Whalen':'Ace'},{'Ace of Gabriel Liberov':'Ace'},{'Ace of Andrew Rosini':'Ace'},{'Ace of Izzy Zoltan':'Ace'},
-      {'Two of Michael Whalen':2},{'Two of Gabriel Liberov':2},{'Two of Andrew Rosini':2},{'Two of Izzy Zoltan':2},
-      {'Three of Michael Whalen':3},{'Three of Gabriel Liberov':3},{'Three of Andrew Rosini':3},{'Three of Izzy Zoltan':3},
-      {'Four of Michael Whalen':4},{'Four of Gabriel Liberov':4},{'Four of Andrew Rosini':4},{'Four of Izzy Zoltan':4},
-      {'Five of Michael Whalen':5},{'Five of Gabriel Liberov':5},{'Five of Andrew Rosini':5},{'Five of Izzy Zoltan':5},
-      {'Six of Michael Whalen':6},{'Six of Gabriel Liberov':6},{'Six of Andrew Rosini':6},{'Six of Izzy Zoltan':6},
-      {'Seven of Michael Whalen':7},{'Seven of Gabriel Liberov':7},{'Seven of Andrew Rosini':7},{'Seven of Izzy Zoltan':7},
-      {'Eight of Michael Whalen':8},{'Eight of Gabriel Liberov':8},{'Eight of Andrew Rosini':8},{'Eight of Izzy Zoltan':8},
-      {'Nine of Michael Whalen':9},{'Nine of Gabriel Liberov':9},{'Nine of Andrew Rosini':9},{'Nine of Izzy Zoltan':9},
-      {'Ten of Michael Whalen':10},{'Ten of Gabriel Liberov':10},{'Ten of Andrew Rosini':10},{'Ten of Izzy Zoltan':10},
-      {'Jack of Michael Whalen':10},{'Jack of Gabriel Liberov':10},{'Jack of Andrew Rosini':10},{'Jack of Izzy Zoltan':10},
-      {'Queen of Michael Whalen':10},{'Queen of Gabriel Liberov':10},{'Queen of Andrew Rosini':10},{'Queen of Izzy Zoltan':10},
-      {'King of Michael Whalen':10},{'King of Gabriel Liberov':10},{'King of Andrew Rosini':10},{'King of Izzy Zoltan':10}]"""
+def blackjack():
+    import random
+    from time import sleep
+    
+    players_hand = list()
+    opponents_hand = list()
+    cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
+    suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
 
+    def player_cards():
+        cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
+        suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
+    
+        face_up_value = random.choice(cards)
+        if face_up_value == 10:
+            possible_cards = ["10", "Jack", "Queen", "King"]
+            random_card = random.choice(possible_cards)
+            suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
+            random_suit = random.choice(suits)
+            face_up_card = (f"Your faceup card is the {random_card} of {random_suit}")
+        elif face_up_value < 10:
+            suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
+            random_suit = random.choice(suits)
+            face_up_card = (f"Your faceup card is the {face_up_value} of {random_suit}")
+        elif face_up_value == 11:
+            random_suit = random.choice(suits)
+            cards.remove(11)
+            face_up_card = (f"Your faceup card is the ace of {random_suit}")
+        players_hand.append(face_up_value)
 
-deck_suits = ["Michael Whalen", "Gabriel Liberov", "Andrew Rosini", "Izzy Zoltan"]
-deck_values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+        face_down_value = random.choice(cards)
+        if face_down_value == 10:
+            possible_cards = ["10", "Jack", "Queen", "King"]
+            random_card = random.choice(possible_cards)
+            suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
+            random_suit = random.choice(suits)
+            face_down_card = (f"your facedown card is the {random_card} of {random_suit}.")
+        elif face_down_value != 10:
+            suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
+            random_suit = random.choice(suits)
+            face_down_card = (f"your facedown card is the {face_down_value} of {random_suit}.")
+        players_hand.append(face_down_value)
+
+        print(f"{face_up_card}, and {face_down_card}")
+    player_cards()
+
+    sleep(2.5)
+
+    def opponents_card():
+        cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
+        suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
+    
+        face_up_value = random.choice(cards)
+        if face_up_value == 10:
+            possible_cards = ["10", "Jack", "Queen", "King"]
+            random_card = random.choice(possible_cards)
+            suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
+            random_suit = random.choice(suits)
+            face_up_card = (f"Your opponent's deck consists of a faceup card, which is the {random_card} of {random_suit}")
+        elif face_up_value < 10:
+            suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
+            random_suit = random.choice(suits)
+            face_up_card = (f"Your opponent's deck consists of a faceup card, which is the {face_up_value} of {random_suit}")
+        elif face_up_value == 11:
+            random_suit = random.choice(suits)
+            cards.remove(11)
+            face_up_card = (f"Your opponent's deck consists of a faceup card, which is the ace of {random_suit}")
+        opponents_hand.append(face_up_value)
+
+        face_down_value = random.choice(cards)
+        if face_down_value == 10:
+            possible_cards = ["10", "Jack", "Queen", "King"]
+            random_card = random.choice(possible_cards)
+            suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
+            random_suit = random.choice(suits)
+            face_down_card = (f"your facedown card is the {random_card} of {random_suit}.")
+        elif face_down_value != 10:
+            suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
+            random_suit = random.choice(suits)
+            face_down_card = (f"your facedown card is the {face_down_value} of {random_suit}.")
+        opponents_hand.append(face_down_value)
+
+        print(f"{face_up_card}, and one facedown card.")
+    opponents_card()
+
+    sleep(2.5)
+
+    hit_or_stand = input("Would you like to hit or stand? Hit/Stand: ")
+
+    while hit_or_stand == "Hit":
+        new_card_value = random.choice(cards)
+        if new_card_value == 10:
+            possible_cards = ["10", "Jack", "Queen", "King"]
+            random_card = random.choice(possible_cards)
+            suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
+            random_suit = random.choice(suits)
+            new_card = (f"Your new card is the {random_card} of {random_suit}.")
+        elif new_card_value < 10:
+            suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
+            random_suit = random.choice(suits)
+            new_card = (f"Your new card is the {new_card_value} of {random_suit}.")
+        elif new_card_value == 11:
+            random_suit = random.choice(suits)
+            new_card = (f"Your new card is the ace of {random_suit}.")
+            if sum(players_hand) + 11 > 21:
+                new_card_value = 1
+            elif sum(players_hand) + 11 < 21:
+                new_card_value = input("Would you like your ace to be valued as a 1 or 11? 1/11: ")
+                if new_card_value == "1":
+                    new_card_value = 1
+                elif new_card_value == "11":
+                    new_card_value = 11
+        players_hand.append(new_card_value)
+        players_sum = sum(players_hand)
+        print(new_card)
+        if players_sum > 21:
+            print("Bust! Your opponent automatically wins!")
+            break
+        hit_or_stand = input("Would you like to hit or stand? Hit/Stand: ")
+
+    if hit_or_stand == "Stand":
+        players_sum = sum(players_hand)
+        print(f"Your total card value is {players_sum}.")
+        print(f"If your opponent has a higher card value than {players_sum}, you will lose. If they have a lower card value than {players_sum}, you will win.")
+blackjack()
