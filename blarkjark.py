@@ -4,7 +4,7 @@ def blackjack():
     
     players_hand = list()
     opponents_hand = list()
-    global card
+    global cards
     cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
     global suits
     suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
@@ -151,12 +151,12 @@ def blackjack():
         opponents_hand.append(new_card_value)
         opponents_sum = sum(opponents_hand)
         if opponents_sum > 21:
-            print("Your opponent has busted. You have defeated your oppenent, and absorbed half of their hearts.")
+            print("Your opponent has busted. You have defeated your opponent, and absorbed half of their hearts.")
             break
         elif opponents_sum < 21 and opponents_sum < players_sum:
             hit_or_stand = player_position
         elif opponents_sum < 21 and opponents_sum > players_sum:
-            print(f"Your opponents has gained a higher score than you, with a total of {opponents_sum}. You will now lose the number of hearts you gambled at the beginning of the round.")
+            print(f"Your opponent has gained a higher score than you, with a total of {opponents_sum}. You will now lose the number of hearts you gambled at the beginning of the round.")
             break
     while player_position == "Bust":
         print("Your opponent has won. You will now lose the number of hearts you gambled at the beginning of the round.")
