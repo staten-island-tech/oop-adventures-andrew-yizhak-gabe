@@ -70,12 +70,12 @@ random_region = random.choice(regions)
 
 henchman = Henchman(random_bird, 30, "HAND")
 enforcer = Enforcer(random_bird, 50, "HAND")
-Tweety = Boss("Tweety", 100, "HAND", random_region) #Player Health After: 150#
-Steve = Boss("S.T.E.V.E", 200, "HAND", random_region) #Player Health After: 250#
-Terrence = Boss("Terrence", 400, "HAND", random_region) #Player Health After: 450#
+Tweety = Boss("Tweety", 100, "HAND", 'Fruity Field') #Player Health After: 150#
+Steve = Boss("S.T.E.V.E", 200, "HAND", 'Ripe Ravine') #Player Health After: 250#
+Terrence = Boss("Terrence", 400, "HAND", 'Plantain Plateau') #Player Health After: 450#
 Private = Boss("Private", 700, "HAND", "NewNana") #Player Health After: 800#
 Rico = Boss("Rico", 1100, "HAND", "NewNana") #Player Health After: 1350#
 Kowalski = Boss("Kowalski", 1800, "HAND", "NewNana") #Player Health After: 2250#
 Skipper = Boss("Skipper", 3000, "HAND", "NewNana") #Player Health After: 3750#
-King_Ghidorah = Boss("King Ghidorah", 5000, "HAND", random_region) #Player Health After: 6500#
+King_Ghidorah = Boss("King Ghidorah", 5000, "HAND", 'Potassium Palace') #Player Health After: 6500#
 Biggest_Bird = Boss("Biggest Bird", 10000, "HAND", "Big Bird's Bar")

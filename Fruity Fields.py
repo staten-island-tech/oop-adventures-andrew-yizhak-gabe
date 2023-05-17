@@ -4,4 +4,6 @@ print('Narrator: King D. Kong and Owen Zhao embarked out of the bar, and into th
 sleep(3)
 print('Owen: Owen giggles stupidly.\"Gee wiz Kongy! I\'ve always wondered, why are you doing this anyways? DUIH!\" ')
 sleep(3)
-print('')
+print('King Kong: \"Don\'t worry about that yet Owen... you\'ll know when the time comes...')
+sleep(3)
+print('The brave King ')
