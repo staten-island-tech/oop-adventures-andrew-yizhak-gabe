@@ -3,6 +3,7 @@ from time import sleep
 health = 0
 skip_a_fight = 0
 badges = []
+inventory = []
 maps = ["Potassium Palace", 'Ripe Ravine', 'Plaintain Plateau', 'Fruity Field']
 map = "Potassium Palace"
 
@@ -56,11 +57,27 @@ while map == "Potassium Palace":
                     print(f"Your purchase has been completed! New Balance: {money.currency} New Badge Unlocked: Potassium Palace Badge")
                     sleep(2)
                     economical_decision = input("State what you would like to purchase: Health, Skip-a-Fight, Potassium Palace Badge, Go Back")
-        
-        
+    if decision == "Talk to Banana King":
+        print("Entering the throne room of Banana King...")
+        sleep(3)
+        print('Banana King: "Welcome to my throne room you goofy monkey"')
+        sleep(3)
+        king_decision = input('Banana King: "Would you like a present from me...": Y/N')
+        if king_decision == 'N':
+            print('Banana King: "How could you reject my gift you stupid baboon! Leave my site at once!"')
+            sleep(3)
+            print("You have been kicked out of the throne room by the royal Banana guards AND have upset the Banana King. As a result, your health has decreased by 25 points!")
+            sleep(4)
+        if king_decision == 'Y':
+            print('Banana King: "Good choice monkey. Here is a banana as memory of my generous Banana grace"')
+            inventory.append("Banana King's Banana")
+            sleep(2)
+            print("Banana King's Banana has been added to your inventory!")
+    if decision == "Healing Spot":
+        print("You bath in the pools of the Potassium Pool")
+        sleep(2)
+        print("As a result, your health has increased by 15!")
 
-                
-            
 if map == "Ripe Ravine":
     decision = input("Where would you like to travel?: Store, Talk to Banana Caveman, Fight the Miniboss, Regular Fight, Healing Spot")
 if map == "Plaintain Plateau":
