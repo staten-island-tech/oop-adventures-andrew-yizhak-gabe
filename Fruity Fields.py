@@ -31,4 +31,13 @@ print('King Kong: "Lil Nas X, it\'s time to bring about the end of the drums of 
 sleep(2)
 print('Narrator: T-the, drums of liberation? But we don\'t have the numbers or resources that they do. We could never do something like that.')
 sleep(2)
-print('King Kong::"Don\'t worry, you know that I can.  "')
+print('King Kong:"Don\'t worry, you know that I can."')
+sleep(2)
+print('Lil Nas X:"Well, fine. But my magic orb, this one is for the champions."')
+sleep(2)
+print('King Kong:"If you want a challenge, bring it on."')
+sleep(2)
+print('Lil Nas X: "Get ready, cause I haven\'t lost since I began yeah."')
+#Fight here between the seer and King Kong 
+#make code for dying
+
