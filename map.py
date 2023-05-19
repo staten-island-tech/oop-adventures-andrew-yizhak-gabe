@@ -74,13 +74,111 @@ while map == "Potassium Palace":
             sleep(2)
             print("Banana King's Banana has been added to your inventory!")
     if decision == "Healing Spot":
-        print("You bath in the pools of the Potassium Pool")
+        print("You bathe in the pools of the Potassium Pool")
+        health = health + 15 
         sleep(2)
         print("As a result, your health has increased by 15!")
 
-if map == "Ripe Ravine":
+while map == "Ripe Ravine":
     decision = input("Where would you like to travel?: Store, Talk to Banana Caveman, Fight the Miniboss, Regular Fight, Healing Spot")
-if map == "Plaintain Plateau":
+    if decision == "Store":
+         economical_decision = input("State what you would like to purchase: Health, Skip-a-Fight, Ripe Ravine Badge, Go Back")
+    while decision == "Store":
+    
+        if economical_decision == "Go Back":
+            leave = input("Are you sure you want to leave?: Y/N")
+            if leave == "Y":
+                print("You probably can't afford anything Brokie haha")
+                sleep(2)
+                break
+
+        while economical_decision != "Go Back":
+            if economical_decision == 'Health':
+                if money.currency < 50:
+                    print("Sorry Brokie! You can't buy this!")
+                    sleep(2)
+                elif money.currency >= 50:
+                    health = health + 1
+                    money.currency = money.currency - 50
+                    print("Processing order...") 
+                    sleep(2)
+                    print(f"Your purchase has been completed! New Balance: {money.currency} New Health: {health}")
+                    sleep(2)
+                    economical_decision = input("State what you would like to purchase: Health, Skip-a-Fight, Ripe Ravine Badge, Go Back")
+        
+            if economical_decision == "Skip-a-Fight":
+                if money.currency < 200:
+                    print("Sorry Brokie! You can't buy this!")
+                    sleep(2)
+                elif money.currency >= 200:
+                    skip_a_fight = skip_a_fight + 1 
+                    money.currency = money.currency - 200
+                    print("Processing order...")
+                    sleep(2)
+                    print(f"Your purchase has been completed! New Balance: {money.currency} New Skip-a-Fight Count: {skip_a_fight}")
+                    sleep(2)
+                    economical_decision = input("State what you would like to purchase: Health, Skip-a-Fight, Ripe Ravine Badge, Go Back")
+        
+            if economical_decision == "Ripe Ravine Badge":
+                if money.currency < 500:
+                    print("Sorry Brokie! You can't buy this!")
+                elif money.currency >= 500:
+                    money.currency = money.currency - 500
+                    print("Processing order...")
+                    sleep(2)
+                    print(f"Your purchase has been completed! New Balance: {money.currency} New Badge Unlocked: Ripe Ravine Badge")
+                    sleep(2)
+                    economical_decision = input("State what you would like to purchase: Health, Skip-a-Fight, Ripe Ravine Badge, Go Back")
+
+while map == "Plaintain Plateau":
     decision = input("Where would you like to travel?: Store, Talk to Banana Merchant, Fight the Miniboss, Regular Fight, Healing Spot")
-if map == "Fruity Field":
+    if decision == "Store":
+         economical_decision = input("State what you would like to purchase: Health, Skip-a-Fight, Plaintain Plateau Badge, Go Back")
+    while decision == "Store":
+    
+        if economical_decision == "Go Back":
+            leave = input("Are you sure you want to leave?: Y/N")
+            if leave == "Y":
+                print("You probably can't afford anything Brokie haha")
+                sleep(2)
+                break
+
+        while economical_decision != "Go Back":
+            if economical_decision == 'Health':
+                if money.currency < 50:
+                    print("Sorry Brokie! You can't buy this!")
+                    sleep(2)
+                elif money.currency >= 50:
+                    health = health + 1
+                    money.currency = money.currency - 50
+                    print("Processing order...") 
+                    sleep(2)
+                    print(f"Your purchase has been completed! New Balance: {money.currency} New Health: {health}")
+                    sleep(2)
+                    economical_decision = input("State what you would like to purchase: Health, Skip-a-Fight, Plaintain Plateau Badge, Go Back")
+        
+            if economical_decision == "Skip-a-Fight":
+                if money.currency < 200:
+                    print("Sorry Brokie! You can't buy this!")
+                    sleep(2)
+                elif money.currency >= 200:
+                    skip_a_fight = skip_a_fight + 1 
+                    money.currency = money.currency - 200
+                    print("Processing order...")
+                    sleep(2)
+                    print(f"Your purchase has been completed! New Balance: {money.currency} New Skip-a-Fight Count: {skip_a_fight}")
+                    sleep(2)
+                    economical_decision = input("State what you would like to purchase: Health, Skip-a-Fight, Plaintain Plateau Badge, Go Back")
+        
+            if economical_decision == "Plaintain Plateau Badge":
+                if money.currency < 500:
+                    print("Sorry Brokie! You can't buy this!")
+                elif money.currency >= 500:
+                    money.currency = money.currency - 500
+                    print("Processing order...")
+                    sleep(2)
+                    print(f"Your purchase has been completed! New Balance: {money.currency} New Badge Unlocked: Plaintain Plateau Badge")
+                    sleep(2)
+                    economical_decision = input("State what you would like to purchase: Health, Skip-a-Fight, Plaintain Plateau Badge, Go Back")
+while map == "Fruity Field":
     decision = input("Where would you like to travel?: Store, Talk to Banana Banana, Fight the Miniboss, Regular Fight, Healing Spot")
