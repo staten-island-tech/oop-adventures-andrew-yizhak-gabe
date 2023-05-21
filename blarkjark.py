@@ -43,7 +43,7 @@ def blackjack():
         print(f"{face_up_card}, and {face_down_card}")
     player_cards()
 
-    sleep(2.5)
+    sleep(3)
 
     def opponents_card():
         cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
@@ -82,7 +82,7 @@ def blackjack():
         print(f"{face_up_card}, and one facedown card.")
     opponents_card()
 
-    sleep(2.5)
+    sleep(3)
 
     hit_or_stand = input("Would you like to hit or stand? Hit/Stand: ")
     while hit_or_stand == "Hit":
