@@ -180,5 +180,72 @@ while map == "Plaintain Plateau":
                     print(f"Your purchase has been completed! New Balance: {money.currency} New Badge Unlocked: Plaintain Plateau Badge")
                     sleep(2)
                     economical_decision = input("State what you would like to purchase: Health, Skip-a-Fight, Plaintain Plateau Badge, Go Back")
+    
+        if decision == "Talk to Banana Merchant":
+            print("Entering the tent of the Banana Merchant...")
+            sleep(3)
+            print('Banana Merchant: "Welcome to my tent you goofy monkey"')
+            sleep(2)
+            merchant_decision = input('Banana Merchant: "I have been searching years for the legendary Banana King\'s Banana. Have you happen to come across this beauty?": Y/N')
+            if merchant_decision == 'Y':
+                if "Banana King's Banana" in inventory:
+                    inventory.remove("Banana King's Banana")
+                    print("Wow! Thank you monkey! I am a happy Banana Merchant now!")
+                else:
+                    print("LIAR! Get out of my sight you monkey!")
+            if merchant_decision == 'N':
+                print('Banana Merchant: "Understandable, have a nice day monkey"')
+                print('You walk out of the tent sad that you could not fufill the request of the Banana Merchant.')
+               
+
+
 while map == "Fruity Field":
     decision = input("Where would you like to travel?: Store, Talk to Banana Banana, Fight the Miniboss, Regular Fight, Healing Spot")
+    if decision == "Store":
+         economical_decision = input("State what you would like to purchase: Health, Skip-a-Fight, Fruity Field Badge, Go Back")
+    while decision == "Store":
+    
+        if economical_decision == "Go Back":
+            leave = input("Are you sure you want to leave?: Y/N")
+            if leave == "Y":
+                print("You probably can't afford anything Brokie haha")
+                sleep(2)
+                break
+
+        while economical_decision != "Go Back":
+            if economical_decision == 'Health':
+                if money.currency < 50:
+                    print("Sorry Brokie! You can't buy this!")
+                    sleep(2)
+                elif money.currency >= 50:
+                    health = health + 1
+                    money.currency = money.currency - 50
+                    print("Processing order...") 
+                    sleep(2)
+                    print(f"Your purchase has been completed! New Balance: {money.currency} New Health: {health}")
+                    sleep(2)
+                    economical_decision = input("State what you would like to purchase: Health, Skip-a-Fight, Fruity Field Badge, Go Back")
+        
+            if economical_decision == "Skip-a-Fight":
+                if money.currency < 200:
+                    print("Sorry Brokie! You can't buy this!")
+                    sleep(2)
+                elif money.currency >= 200:
+                    skip_a_fight = skip_a_fight + 1 
+                    money.currency = money.currency - 200
+                    print("Processing order...")
+                    sleep(2)
+                    print(f"Your purchase has been completed! New Balance: {money.currency} New Skip-a-Fight Count: {skip_a_fight}")
+                    sleep(2)
+                    economical_decision = input("State what you would like to purchase: Health, Skip-a-Fight, Fruity Field Badge, Go Back")
+        
+            if economical_decision == "Fruity Field Badge":
+                if money.currency < 500:
+                    print("Sorry Brokie! You can't buy this!")
+                elif money.currency >= 500:
+                    money.currency = money.currency - 500
+                    print("Processing order...")
+                    sleep(2)
+                    print(f"Your purchase has been completed! New Balance: {money.currency} New Badge Unlocked: Fruity Field Badge")
+                    sleep(2)
+                    economical_decision = input("State what you would like to purchase: Health, Skip-a-Fight, Fruity Field Badge, Go Back")
