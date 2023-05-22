@@ -70,7 +70,7 @@ random_region = random.choice(regions)
 
 henchman = Henchman(random_bird, 30, "HAND")
 enforcer = Enforcer(random_bird, 50, "HAND")
-Lil_Nas_X = Enforcer("Lil_Nas_X", 50, "HAND", "Fruity Fields")
+Lil_Nas_X = Boss("Lil_Nas_X", 50, "HAND", "Fruity Fields")
 Tweety = Boss("Tweety", 100, "HAND", 'Fruity Field') #Player Health After: 150#
 Steve = Boss("S.T.E.V.E", 200, "HAND", 'Ripe Ravine') #Player Health After: 250#
 Terrence = Boss("Terrence", 400, "HAND", 'Plantain Plateau') #Player Health After: 450#
