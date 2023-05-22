@@ -84,16 +84,11 @@ while player_position == players_sum:
         break
     new_card_value = random.choice(cards)
     if new_card_value == 10:
-        possible_cards = ["10", "Jack", "Queen", "King"]
-        random_card = random.choice(possible_cards)
-        random_suit = random.choice(suits)
-        new_card = (f"Your new card is the {random_card} of {random_suit}.")
+        new_card = (f"Your new card is the {random.choice(Tens)} of {random.choice(suits)}.")
     elif new_card_value < 10:
-        random_suit = random.choice(suits)
-        new_card = (f"Your new card is the {new_card_value} of {random_suit}.")
+        new_card = (f"Your new card is the {new_card_value} of {random.choice(suits)}.")
     elif new_card_value == 11:
-        random_suit = random.choice(suits)
-        new_card = (f"Your new card is the ace of {random_suit}.")
+        new_card = (f"Your new card is the ace of {random.choice(suits)}.")
         if sum(players_hand) + 11 > 21:
             new_card_value = 1
         elif sum(players_hand) + 11 < 21:
