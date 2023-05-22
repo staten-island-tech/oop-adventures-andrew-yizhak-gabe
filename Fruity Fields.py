@@ -1,9 +1,8 @@
 from time import sleep
-from clarses import Lil_Nas_X
-from blarkjark import player_status
+from classes import Lil_Nas_X
 delay = 3
 
-print("Narrator: You stroll out of the bar, eventually making your way to the neighborhood of Fruity Fields. There, you run into your sidekick, Australian Henriques.")
+"""print("Narrator: You stroll out of the bar, eventually making your way to the neighborhood of Fruity Fields. There, you run into your sidekick, Australian Henriques.")
 sleep(delay)
 print("Australian Henriques: Bloody Yanks! I don't know why you're back here in Bananaland, with your bounty and all, but you should go.")
 sleep(delay)
@@ -11,7 +10,7 @@ print("King Kong: Never mind that, Australian Henriques. Walk with me, there's s
 sleep(delay)
 print("Narrator: The pair stroll on, passing signs of the dreadful Bird Mafia, the ones who put the bounty on you, all the way.")
 sleep(delay)
-print("Narrator: Together, you and Australian Henriques eventually make it a small hut with a door made of beads. You force the door open, revealing the Seer.")
+print("Narrator: Together, you and Australian Henriques eventually make it a small hut with a door made of beads. You force the door open, revealing a sign that says, The Seer's Hut.")
 sleep(delay)
 print("Australian Henriques: What is this place? It looks like the route to the underworld.")
 sleep(delay)
@@ -38,4 +37,6 @@ sleep(delay)
 print("Narrator: In Bananaland, when you accept a challenge from an opponent, their stats will flash on your screen.")
 sleep(delay)
 print(Lil_Nas_X)
-#Add playing blackjack and then results and then health and then continuation for bosses n shit.#
+sleep(delay)"""
+
+from blackjack import blackjack
