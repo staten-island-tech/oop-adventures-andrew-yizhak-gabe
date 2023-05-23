@@ -5,7 +5,7 @@ skip_a_fight = 0
 badges = []
 inventory = []
 maps = ["Potassium Palace", 'Ripe Ravine', 'Plaintain Plateau', 'Fruity Field']
-map = "Potassium Palace"
+map = "Plaintain Plateau"
 
 while map == "Potassium Palace":
     decision = input("Where would you like to travel?: Store, Talk to Banana King, Regular Fight, Healing Spot, I HATE POTASSIUM PALACE TAKE ME OUT OF HERE")
@@ -180,22 +180,23 @@ while map == "Plaintain Plateau":
                     print(f"Your purchase has been completed! New Balance: {money.currency} New Badge Unlocked: Plaintain Plateau Badge")
                     sleep(2)
                     economical_decision = input("State what you would like to purchase: Health, Skip-a-Fight, Plaintain Plateau Badge, Go Back")
-    
-        if decision == "Talk to Banana Merchant":
-            print("Entering the tent of the Banana Merchant...")
-            sleep(3)
-            print('Banana Merchant: "Welcome to my tent you goofy monkey"')
-            sleep(2)
-            merchant_decision = input('Banana Merchant: "I have been searching years for the legendary Banana King\'s Banana. Have you happen to come across this beauty?": Y/N')
-            if merchant_decision == 'Y':
-                if "Banana King's Banana" in inventory:
-                    inventory.remove("Banana King's Banana")
-                    print("Wow! Thank you monkey! I am a happy Banana Merchant now!")
-                else:
-                    print("LIAR! Get out of my sight you monkey!")
-            if merchant_decision == 'N':
-                print('Banana Merchant: "Understandable, have a nice day monkey"')
+    if decision == "Talk to Banana Merchant":
+        print("Entering the tent of the Banana Merchant...")
+        sleep(3)
+        print('Banana Merchant: "Welcome to my tent you goofy monkey"')
+        sleep(2)
+        merchant_decision = input('Banana Merchant: "I have been searching years for the legendary Banana King\'s Banana. Have you happen to come across this beauty?": Y/N')
+        if merchant_decision == 'Y':
+            if "Banana King's Banana" in inventory:
+                inventory.remove("Banana King's Banana")
+                print("Wow! Thank you monkey! I am a happy Banana Merchant now!")
+            else:
+                print('Banana Merchant: "LIAR! Get out of my sight you monkey!"')
+                sleep(2)
                 print('You walk out of the tent sad that you could not fufill the request of the Banana Merchant.')
+        if merchant_decision == 'N':
+            print('Banana Merchant: "Understandable, have a nice day monkey"')
+            print('You walk out of the tent sad that you could not fufill the request of the Banana Merchant.')
                
 
 
