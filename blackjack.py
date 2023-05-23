@@ -18,13 +18,15 @@ elif face_up_value == 11:
     face_up_card = (f"Your faceup card is the ace of {random.choice(suits)}")
 players_hand.append(face_up_value)
 
-face_down_value = random.choice(cards)
+face_down_value = cards[12]
 if face_down_value == 10:
     face_down_card = (f"your facedown card is the {random.choice(Tens)} of {random.choice(suits)}.")
-elif face_down_value != 10:
+elif face_down_value < 10:
     face_down_card = (f"your facedown card is the {face_down_value} of {random.choice(suits)}.")
+elif face_up_value == 11:
+    cards.remove(11)
+    face_down_card = (f"Your faceup card is the ace of {random.choice(suits)}")
 players_hand.append(face_down_value)
-
 print(f"{face_up_card}, and {face_down_card}")
 
 sleep(2.5)
