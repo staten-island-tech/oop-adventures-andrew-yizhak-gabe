@@ -39,4 +39,23 @@ sleep(delay)
 print(Lil_Nas_X)
 sleep(delay)"""
 
-from blackjack import blackjack
+def win_or_loss():
+    placeholder = 0.1
+    while placeholder != 0:
+        from blackjack import blackjack
+        from blackjack import win_or_loss
+        player_win = win_or_loss
+        if player_win == True:
+            print("Lil Nas X: How could you possibly have defeated me, when I haven't lost since I began, yeah?")
+            sleep(delay)
+            print("Lil Nas X: I guess this is the end, yeah, so I'll help you now, eh?")
+            sleep(delay)
+            break
+        elif player_win == False:
+            print("Lil Nas X: Still haven't lost since I began, yeah, never say that it's the end, yeah.")
+            sleep(delay)
+            print("Lil Nas X: Try to beat me again, there's no way you can.")
+            blackjack()
+            player_win = win_or_loss
+            print(player_win)
+win_or_loss()
