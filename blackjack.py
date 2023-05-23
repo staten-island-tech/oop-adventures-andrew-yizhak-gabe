@@ -8,25 +8,21 @@ Tens=['10','Jack','Queen','King']
 suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
     
 face_up_value = random.choice(cards)
+face_down_value = random.choice(cards)
 
-if face_up_value == 10:
-    face_up_card = (f"Your faceup card is the {random.choice(Tens)} of {random.choice(suits)}")
-elif face_up_value < 10:
-    face_up_card = (f"Your faceup card is the {face_up_value} of {random.choice(suits)}")
-elif face_up_value == 11:
-    cards.remove(11)
-    face_up_card = (f"Your faceup card is the ace of {random.choice(suits)}")
-players_hand.append(face_up_value)
+def card(facing,facingvalue):
+    if facingvalue == 10:
+        return(f"Your {facing} card is the {random.choice(Tens)} of {random.choice(suits)}")
+    elif face_up_value < 10:
+        return(f"Your {facing} card is the {face_up_value} of {random.choice(suits)}")
+    elif facingvalue == 11:
+        cards.remove(11)
+        return(f"Your {facing} card is the ace of {random.choice(suits)}")
+    players_hand.append(facingvalue)
 
-face_down_value = cards[12]
-if face_down_value == 10:
-    face_down_card = (f"your facedown card is the {random.choice(Tens)} of {random.choice(suits)}.")
-elif face_down_value < 10:
-    face_down_card = (f"your facedown card is the {face_down_value} of {random.choice(suits)}.")
-elif face_up_value == 11:
-    cards.remove(11)
-    face_down_card = (f"Your faceup card is the ace of {random.choice(suits)}")
-players_hand.append(face_down_value)
+face_up_card=card('face up',face_up_value)
+face_down_card=card('face down',face_down_value)
+
 print(f"{face_up_card}, and {face_down_card}")
 
 sleep(2.5)
@@ -52,6 +48,7 @@ sleep(2.5)
 hit_or_stand = input("Would you like to hit or stand? Hit/Stand: ")
 while hit_or_stand == "Hit":
     new_card_value = random.choice(cards)
+    card('new',new_card_value)
     if new_card_value == 10:
         new_card = (f"Your new card is the {random.choice(Tens)} of {random.choice(suits)}.")
     elif new_card_value < 10:
