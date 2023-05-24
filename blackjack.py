@@ -164,9 +164,3 @@ def blackjack():
         player_status = False
         break
 blackjack()
-
-if player_status == True:
-    win_or_loss = True
-elif player_status == False:
-    win_or_loss = False
-print(f"Player_Win = {win_or_loss}")
