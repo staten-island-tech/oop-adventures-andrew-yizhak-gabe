@@ -180,6 +180,7 @@ while map == "Plaintain Plateau":
                     print(f"Your purchase has been completed! New Balance: {money.currency} New Badge Unlocked: Plaintain Plateau Badge")
                     sleep(2)
                     economical_decision = input("State what you would like to purchase: Health, Skip-a-Fight, Plaintain Plateau Badge, Go Back")
+    
     if decision == "Talk to Banana Merchant":
         print("Entering the tent of the Banana Merchant...")
         sleep(3)
@@ -196,8 +197,9 @@ while map == "Plaintain Plateau":
                 print('You walk out of the tent sad that you could not fufill the request of the Banana Merchant.')
         if merchant_decision == 'N':
             print('Banana Merchant: "Understandable, have a nice day monkey"')
+            sleep(2)
             print('You walk out of the tent sad that you could not fufill the request of the Banana Merchant.')
-               
+            sleep(3)   
 
 
 while map == "Fruity Field":
@@ -250,3 +252,16 @@ while map == "Fruity Field":
                     print(f"Your purchase has been completed! New Balance: {money.currency} New Badge Unlocked: Fruity Field Badge")
                     sleep(2)
                     economical_decision = input("State what you would like to purchase: Health, Skip-a-Fight, Fruity Field Badge, Go Back")
+    if decision == "Banana Banana":
+        print("Visiting Banana the Banana...")
+        sleep(2)
+        print('Banana Banana: "Hello good sir monkey! I know you like bananas, but please don\'t eat me!"')
+        banana_decision = input("Follow Your Instincts? (WARNING YOU WILL REGRET IT): Y/N")
+        if banana_decision == 'Y':
+            health = 0
+            print('You died! Thanks for playing King Kong\'s Greatest Ace! Do you feel proud of yourself that you ate the poor banana?')
+            sleep(2)
+            print('Signing off!')
+            sleep(2)
+        if banana_decision == 'N':
+            print('Banana Banana: "Good choice sir monkey. You would have definitely regretted that decision. Have a reward of +25 Health!')
