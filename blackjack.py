@@ -50,6 +50,7 @@ def calculate(hand,value):
                 else:
                     value+=11
         print(value) #DELETE ONCE TESTING IS OVER
+        return value 
 
 #THE GAME   
 draw('Your faceup',players_hand)
@@ -65,21 +66,13 @@ hit=input('Do you want to hit, or stand? |HIT/STAND| ').upper()
 while hit=='HIT':
     draw('Your new',players_hand)
     calculate(players_hand,player_value)
-    hit=input('Do you want to hit, or stand? |HIT/STAND| ').upper()
-
+    print(player_value)
+    if player_value>21:
+        hit='STAND'
+        break
+    hit=input('Do you want to hit, or stand? |HIT/STAND| ').upper() #ERROR WITH BUSTING, MAKE SURE TO FIX
 
 """
-sleep(2.5)
-
-face_up_card=game.card('face up',cardValue,opponents_hand,'opponent')
-opponents_hand.append(cardValue)
-cardValue = random.choice(cards)
-opponents_hand.append(cardValue)
-
-print(f"{face_up_card}, and one facedown card.")
-
-sleep(2.5)
-
 hit_or_stand = input("Would you like to hit or stand? Hit/Stand: ")
 while hit_or_stand == "Hit":
     new_card=game.card('new card',cardValue,players_hand)
