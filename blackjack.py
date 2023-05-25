@@ -7,11 +7,15 @@ cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
 Tens=['10','Jack','Queen','King']
 suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
 delay=1
+player_value=0
+opponent_value=0
+
 
 class game(): 
     def __init__(self,cardValue,cardDrawn):
         self.cardValue=cardValue
         self.cardrawn=cardDrawn
+        
 def card():
     return game
 
@@ -29,6 +33,23 @@ def draw(facing,hand):
     print(c.cardDrawn)
     print(hand)#DELETE ONCE TESTING IS OVER 
 
+def calculate(hand,value):
+     if 11 not in hand:
+          value=sum(hand)
+          print(value) #DELETE ONCE TESTING IS OVER
+          return value
+     else:
+        value=0
+        for cards in range(len(hand)):
+             if hand[cards]!=11:
+                value+=hand[cards]
+        for cards in range(len(hand)):
+            if hand[cards]==11:
+                if value>10:
+                    value+=1
+                else:
+                    value+=11
+        print(value) #DELETE ONCE TESTING IS OVER
 
 #THE GAME   
 draw('Your faceup',players_hand)
@@ -37,8 +58,14 @@ sleep(delay) #the two lines above will tell the player what their hand is
 opponents_hand.append(random.choice(cards))
 draw("Your opponent has one facedown card, and their faceup",opponents_hand) #Opponents hand
 sleep(delay)
+calculate(players_hand,player_value)
+calculate(opponents_hand,opponent_value)
 
-
+hit=input('Do you want to hit, or stand? |HIT/STAND| ').upper()
+while hit=='HIT':
+    draw('Your new',players_hand)
+    calculate(players_hand,player_value)
+    hit=input('Do you want to hit, or stand? |HIT/STAND| ').upper()
 
 
 """
