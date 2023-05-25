@@ -6,35 +6,31 @@ opponents_hand = []
 cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
 Tens=['10','Jack','Queen','King']
 suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
-    
-cardValue = random.choice(cards)
+
 class game():
-    def card(facing,cardValue,hand,player):
-        
-        cardValue = random.choice(cards)
-        if cardValue == 10:
-            return(f"{player} {facing} card is the {random.choice(Tens)} of {random.choice(suits)}")
-        elif cardValue < 10:
-            return(f"{player} {facing} card is the {cardValue} of {random.choice(suits)}")
-        elif cardValue == 11:
-            if player=='player':
-                if sum(hand) + 11 > 21:
-                    cardValue = 1
-                elif sum(hand) + 11 < 21:
-                    cardValue = input("Would you like your ace to be valued as a 1 or 11? 1/11: ")
-                    if cardValue == "1":
-                        cardValue = 1
-                    elif cardValue == "11":
-                        cardValue = 11
-            else:
-                if sum(players_hand) + 11 > 21:
-                    cardValue = 1
-                elif sum(players_hand) + 11 < 21:
-                    cardValue = 11
-                return(f"{player} {facing} card is the ace of {random.choice(suits)}")
-        return(cardValue)
-        
-face_up_card=game.card('face up',cardValue,players_hand,'player')
+    def __init__(self,cardValue,cardrawn):
+        self.cardValue=cardValue
+        self.cardrawn=cardrawn
+def card():
+    return game
+
+c=card()
+def cardfunction(facing):
+    c.cardValue = random.choice(cards)
+    if c.cardValue == 10:
+        c.cardrawn=(f"{facing} card is the {random.choice(Tens)} of {random.choice(suits)}")
+    elif c.cardValue < 10:
+        c.cardrawn=(f"{facing} card is the {c.cardValue} of {random.choice(suits)}")
+    elif c.cardValue == 11:
+            c.cardrawn=(f"{facing} card is the ace of {random.choice(suits)}")
+
+cardfunction('your test')
+print(c.cardrawn)
+players_hand.append(c.cardValue)
+print(players_hand)
+
+#
+"""face_up_card=game.card('face up',cardValue,players_hand,'player')
 players_hand.append(cardValue)
 print(players_hand)
 face_down_card=game.card('face down',cardValue,players_hand,'player')
@@ -103,3 +99,4 @@ while player_position == players_sum:
 while player_position == "Bust":
     print("Your opponent has won. You will now lose the number of hearts you gambled at the beginning of the round.")
     break
+"""
