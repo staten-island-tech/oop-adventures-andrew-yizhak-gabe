@@ -6,39 +6,42 @@ opponents_hand = []
 cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
 Tens=['10','Jack','Queen','King']
 suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
+delay=1
 
-class game():
-    def __init__(self,cardValue,cardrawn):
+class game(): 
+    def __init__(self,cardValue,cardDrawn):
         self.cardValue=cardValue
-        self.cardrawn=cardrawn
+        self.cardrawn=cardDrawn
 def card():
     return game
 
 c=card()
-def cardfunction(facing):
+#cardValue represents the value of the cards. cardDrawn will allow us too
+def draw(facing,hand):
     c.cardValue = random.choice(cards)
     if c.cardValue == 10:
-        c.cardrawn=(f"{facing} card is the {random.choice(Tens)} of {random.choice(suits)}")
+        c.cardDrawn=(f"{facing} card is the {random.choice(Tens)} of {random.choice(suits)}.")
     elif c.cardValue < 10:
-        c.cardrawn=(f"{facing} card is the {c.cardValue} of {random.choice(suits)}")
+        c.cardDrawn=(f"{facing} card is the {c.cardValue} of {random.choice(suits)}.")
     elif c.cardValue == 11:
-            c.cardrawn=(f"{facing} card is the ace of {random.choice(suits)}")
+            c.cardDrawn=(f"{facing} card is the ace of {random.choice(suits)}.")
+    hand.append(c.cardValue)
+    print(c.cardDrawn)
+    print(hand)#DELETE ONCE TESTING IS OVER 
 
-cardfunction('your test')
-print(c.cardrawn)
-players_hand.append(c.cardValue)
-print(players_hand)
 
-#
-"""face_up_card=game.card('face up',cardValue,players_hand,'player')
-players_hand.append(cardValue)
-print(players_hand)
-face_down_card=game.card('face down',cardValue,players_hand,'player')
-players_hand.append(cardValue)
-print(players_hand)
+#THE GAME   
+draw('Your faceup',players_hand)
+draw('Your facedown',players_hand)
+sleep(delay) #the two lines above will tell the player what their hand is
+opponents_hand.append(random.choice(cards))
+draw("Your opponent has one facedown card, and their faceup",opponents_hand) #Opponents hand
+sleep(delay)
 
-print(f"{face_up_card}, and {face_down_card}.")
 
+
+
+"""
 sleep(2.5)
 
 face_up_card=game.card('face up',cardValue,opponents_hand,'opponent')
