@@ -16,25 +16,26 @@ class Enemy(User):
         return f"{self.name}, {self.health}"
 
 class Henchman(Enemy):
-    def __init__(self, name, health, hand):
+    def __init__(self, name, health, weapon):
         super().__init__(name, health)
-        self.hand = hand
+        self.weapon = weapon
     def __str__(self):
-        return f"{self.name}, {self.health}, {self.hand}"
+        return f"{self.name}, {self.health}, {self.weapon}"
 
 class Enforcer(Enemy):
-    def __init__(self, name, health, hand):
+    def __init__(self, name, health, weapon):
         super().__init__(name, health)
-        self.hand = hand
+        self.weapon = weapon
     def __str__(self):
-        return f"{self.name}, {self.health}, {self.hand}"
+        return f"{self.name}, {self.health}, {self.weapon}"
 
 class Boss(Enforcer):
-    def __init__(self, name, health, hand, region):
-        super().__init__(name, health, hand)
+    def __init__(self, name, health, weapon, region, replenish):
+        super().__init__(name, health, weapon)
         self.region = region
+        self.replenish = replenish
     def __str__(self):
-        return f"{self.name}, {self.health}, {self.hand}, {self.region}"
+        return f"{self.name}, {self.health}, {self.weapon}, {self.region}, {self.replenish}"
 
 enemies = []
 henchmen = []
@@ -47,20 +48,20 @@ def create_new_enemy(name, health):
     for enemy in enemies:
         print(enemy)
 
-def create_new_henchman(name, health, hand):
-    new_henchman = Henchman(name, health, hand)
+def create_new_henchman(name, health, weapon):
+    new_henchman = Henchman(name, health, weapon)
     henchmen.append(new_henchman)
     for henchman in henchmen:
         print(henchman)
 
-def create_new_enforcer(name, health, hand):
-    new_enforcer = Enforcer(name, health, hand)
+def create_new_enforcer(name, health, weapon):
+    new_enforcer = Enforcer(name, health, weapon)
     enforcers.append(new_enforcer)
     for enforcer in enforcers:
         print(enforcer)
 
-def create_new_boss(name, health, hand, region):
-    new_boss = Boss(name, health, hand, region)
+def create_new_boss(name, health, weapon, region, replenish):
+    new_boss = Boss(name, health, weapon, region, replenish)
     bosses.append(new_boss)
     for boss in bosses:
         print(boss)
