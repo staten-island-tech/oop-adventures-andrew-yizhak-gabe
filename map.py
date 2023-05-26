@@ -199,7 +199,12 @@ while map == "Plaintain Plateau":
             print('Banana Merchant: "Understandable, have a nice day monkey"')
             sleep(2)
             print('You walk out of the tent sad that you could not fufill the request of the Banana Merchant.')
-            sleep(3)   
+            sleep(3)  
+    if decision == "Healing Spot":
+        print("You bathe in the pools of the Potassium Pool")
+        health = health + 15 
+        sleep(2)
+        print("As a result, your health has increased by 15!") 
 
 
 while map == "Fruity Field":
@@ -252,7 +257,7 @@ while map == "Fruity Field":
                     print(f"Your purchase has been completed! New Balance: {money.currency} New Badge Unlocked: Fruity Field Badge")
                     sleep(2)
                     economical_decision = input("State what you would like to purchase: Health, Skip-a-Fight, Fruity Field Badge, Go Back")
-    if decision == "Banana Banana":
+    if decision == "Talk to Banana Banana":
         print("Visiting Banana the Banana...")
         sleep(2)
         print('Banana Banana: "Hello good sir monkey! I know you like bananas, but please don\'t eat me!"')
@@ -264,4 +269,12 @@ while map == "Fruity Field":
             print('Signing off!')
             sleep(2)
         if banana_decision == 'N':
+            health = health + 25
             print('Banana Banana: "Good choice sir monkey. You would have definitely regretted that decision. Have a reward of +25 Health!')
+            sleep(2)
+            print(f"New Health: {health}")
+    if decision == "Healing Spot":
+        print("You bathe in the pools of the Potassium Pool")
+        health = health + 15 
+        sleep(2)
+        print("As a result, your health has increased by 15!")
