@@ -1,5 +1,6 @@
 from time import sleep
 from classes import Lil_Nas_X
+count = []
 delay = 3
 health = 100
 
@@ -199,9 +200,10 @@ print("King Kong: If you want a challenge, then bring it. Your skills are the le
 sleep(delay)
 print("Lil Nas X: Eh? I haven't lost since I began, yeah.")
 sleep(delay)
-print(f"Narrator: In Bananaland, when you accept a challenge from an opponent, their stats will flash on your screen. Furthermore, you currently have {health} health. You must gamble a certain amount of health, and you will either lose it or absorb your opponents health. Your opponent will automatically gamble the same amount of health as you.")
+print(f"Narrator: In Bananaland, when you accept a challenge from an opponent, their stats will flash on your screen. Furthermore, you currently have {health} health. You must gamble a certain amount of health, and you will either lose it or absorb your opponents health. Your opponent will automatically gamble the same amount of health as you, unless they are a hit opponent, who you will have to defeat once for each number of hits.")
 sleep(delay)
-gamble = int(input("Narrator: How much health would you like to gamble? Lil Nas X has 50 health, so I recommend you gamble 50, so you don't have to play him again. Enter health here: "))
+gamble = 10
+print("Narrator: Normally, you will have to gamble a certain amount of health to lower an enemy. However, Lil Nas X is a special hit boss, so your gamble will automatically be 10 per 1 hit.")
 sleep(delay)
 print(Lil_Nas_X)
 sleep(delay)
@@ -210,6 +212,7 @@ blackjack()
 while players_sum > 21:
     print("Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.")
     new_health = health - gamble
+    count.append(1)
     if new_health <= 0:
         print("You are out of health, and your game has ended.")
         break
@@ -217,11 +220,30 @@ while players_sum > 21:
 while players_sum < opponents_sum and opponents_sum < 21:
     print("Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.")
     new_health = health - gamble
+    count.append(1)
     if new_health <= 0:
         print("You are out of health, and your game has ended.")
         break
     blackjack()
 if opponents_sum > 21:
     print("Lil Nas X: How could you have possibly defeated me, when I haven't lost since I began, yeah? I guess I'll help you now that you have proven yourself worthy.")
+    if count != 0:
+        new_health = health - ((len(count)) * gamble)
+    elif count == 0:
+        new_health = health
 
-print(f"Narrator: Your health is now {new_health}.")
+
+print(f"Narrator: Your health is now {new_health}. You will need to survive the rest of this level with {new_health} health.")
+sleep(delay)
+print("Lil Nas X: Okay, so you said you need to bring about the drums of liberation. How exactly do you plan to take down the bird mafia?")
+sleep(delay)
+print("King Kong: Well, after extensive research and some help from Australian Henriques, who went undercover into the Bird Mafia, I have determined that there are five main leaders that I need to take out to make the Bird Mafia collapse from within.")
+sleep(delay)
+print("Lil Nas X: Ah, yes. Well, to even make it to the Bird Mafia leaders, you will need to make your presence known. For that, I recommend you go talk to Bobby Hill. He moves around a lot, but rumors are that he is currently residing in NewNana.")
+sleep(delay)
+print("King Kong: Thank you. I need to go pay this Bobby Hill a visit.")
+sleep(delay)
+print("Australian Henriques: See ya later, yank.")
+sleep(delay)
+
+#Now up to adding in the story, kill some henchmen, and fight Tweety.#
