@@ -1,8 +1,7 @@
 def blackjack():
     import random
     from time import sleep
-    global player_status
-
+    
     players_hand = list()
     opponents_hand = list()
     cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
@@ -151,16 +150,13 @@ def blackjack():
         opponents_sum = sum(opponents_hand)
         if opponents_sum > 21:
             print("Your opponent has busted. You have defeated your opponent.")
-            player_status = True
             break
         elif opponents_sum < 21 and opponents_sum < players_sum:
             hit_or_stand = player_position
         elif opponents_sum < 21 and opponents_sum > players_sum:
-            player_status = False
             print(f"Your opponent has gained a higher score than you, with a total of {opponents_sum}. You will now lose the number of hearts you gambled at the beginning of the round.")
             break
     while player_position == "Bust":
         print("Your opponent has won. You will now lose the number of hearts you gambled at the beginning of the round.")
-        player_status = False
         break
 blackjack()

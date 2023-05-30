@@ -4,6 +4,7 @@ from classes import henchman
 from classes import enforcer
 delay = 3
 health = 100
+new_health = 100
 
 def blackjack():
     import random
@@ -209,14 +210,14 @@ sleep(delay)
 print(Lil_Nas_X)
 sleep(delay)
 
-def nas_fight():
+def seer_fight():
     global health
     global new_health
     blackjack()
     while players_sum > 21:
         print("Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.")
         new_health = health - gamble
-        health == new_health
+        health = new_health
         if health <= 0:
             print("You are out of health. Your game is over.")
             break
@@ -224,15 +225,14 @@ def nas_fight():
     while players_sum < opponents_sum and opponents_sum < 21:
         print("Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.")
         new_health = health - gamble
-        health == new_health
+        health = new_health
         if health <= 0:
             print("You are out of health. Your game is over.")
             break
         blackjack()
     if opponents_sum > 21:
         print("Lil Nas X: How could you have possibly defeated me, when I haven't lost since I began, yeah? I guess I'll help you now that you have proven yourself worthy.")
-nas_fight()
-
+seer_fight()
 
 print(f"Narrator: Your health is now {health}. You will need to survive the rest of this level with {health} health.")
 sleep(delay)
@@ -272,7 +272,7 @@ print("King Kong: Squawk, squawk then birdie... let's do this.")
 sleep(delay)
 print(henchman)
 sleep(delay)
-gamble = int(input(f"Narrator: How much health would you like to gamble on the fight? You currently have --- health: "))
+gamble = int(input(f"Narrator: How much health would you like to gamble on the fight? You currently have {health} health: "))
 
 def henchman_fight():
     global health
@@ -281,7 +281,7 @@ def henchman_fight():
     while players_sum > 21:
         print("Narrator: The henchman wacks you with his baton, grinning as he slowly defeats you.")
         new_health = health - gamble
-        health == new_health
+        health = new_health
         if health <= 0:
             print("You are out of health. Your game is over.")
             break
@@ -289,7 +289,7 @@ def henchman_fight():
     while players_sum < opponents_sum and opponents_sum < 21:
         print("Narrator: The henchman wacks you with his baton, grinning as he slowly defeats you.")
         new_health = health - gamble
-        health == new_health
+        health = new_health
         if health <= 0:
             print("You are out of health. Your game is over.")
             break
