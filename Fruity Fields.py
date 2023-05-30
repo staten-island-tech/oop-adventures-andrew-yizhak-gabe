@@ -2,8 +2,6 @@ from time import sleep
 from classes import Lil_Nas_X
 from classes import henchman
 from classes import enforcer
-from itertools import repeat
-count = []
 delay = 3
 health = 100
 
@@ -211,32 +209,30 @@ sleep(delay)
 print(Lil_Nas_X)
 sleep(delay)
 
-blackjack()
-while players_sum > 21:
-    print("Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.")
-    new_health = health - gamble
-    count.append(1)
-    if new_health <= 0:
-        print("You are out of health, and your game has ended.")
-        break
+def nas_fight():
+    global health
+    global new_health
     blackjack()
-while players_sum < opponents_sum and opponents_sum < 21:
-    print("Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.")
-    new_health = health - gamble
-    count.append(1)
-    if new_health <= 0:
-        print("You are out of health, and your game has ended.")
-        break
-    blackjack()
-if opponents_sum > 21:
-    print("Lil Nas X: How could you have possibly defeated me, when I haven't lost since I began, yeah? I guess I'll help you now that you have proven yourself worthy.")
-    if count != 0:
-        new_health = health - ((len(count)) * gamble)
-    elif count == 0:
-        new_health = health
+    while players_sum > 21:
+        print("Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.")
+        new_health = health - gamble
+        health == new_health
+        if health <= 0:
+            print("You are out of health. Your game is over.")
+            break
+        blackjack()
+    while players_sum < opponents_sum and opponents_sum < 21:
+        print("Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.")
+        new_health = health - gamble
+        health == new_health
+        if health <= 0:
+            print("You are out of health. Your game is over.")
+            break
+        blackjack()
+    if opponents_sum > 21:
+        print("Lil Nas X: How could you have possibly defeated me, when I haven't lost since I began, yeah? I guess I'll help you now that you have proven yourself worthy.")
+nas_fight()
 
-health == new_health
-count.clear()
 
 print(f"Narrator: Your health is now {health}. You will need to survive the rest of this level with {health} health.")
 sleep(delay)
@@ -276,40 +272,38 @@ print("King Kong: Squawk, squawk then birdie... let's do this.")
 sleep(delay)
 print(henchman)
 sleep(delay)
-gamble = int(input(f"Narrator: How much health would you like to gamble on the fight? You currently have {health} health: "))
+gamble = int(input(f"Narrator: How much health would you like to gamble on the fight? You currently have --- health: "))
 
 def henchman_fight():
+    global health
+    global new_health
     blackjack()
     while players_sum > 21:
         print("Narrator: The henchman wacks you with his baton, grinning as he slowly defeats you.")
         new_health = health - gamble
-        count.append(1)
-        if new_health <= 0:
-            print("You are out of health, and your game has ended.")
+        health == new_health
+        if health <= 0:
+            print("You are out of health. Your game is over.")
             break
         blackjack()
     while players_sum < opponents_sum and opponents_sum < 21:
         print("Narrator: The henchman wacks you with his baton, grinning as he slowly defeats you.")
         new_health = health - gamble
-        count.append(1)
-        if new_health <= 0:
-            print("You are out of health, and your game has ended.")
+        health == new_health
+        if health <= 0:
+            print("You are out of health. Your game is over.")
             break
         blackjack()
     if opponents_sum > 21:
-        if count != 0:
-            new_health = health - ((len(count)) * gamble)
-        elif count == 0:
-            new_health = health
         henchman_health = 30 - gamble
         if henchman_health <= 0:
             print("King Kong: Bam. Scumbag down.")
             sleep(delay)
-            return health and new_health
         elif henchman_health > 0:
             print("Australian Henriques: Watch out, this Yank's coming back for more.")
             sleep(delay)
             print(f"The henchman you are facing is now on {henchman_health}.")
+            henchman_fight()
 henchman_fight()
 
 #Next up: force the henchman fight to repeat, make fight scene, make boss fight, then done with Fruity Fields.#
