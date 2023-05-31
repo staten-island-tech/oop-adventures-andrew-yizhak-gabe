@@ -59,5 +59,6 @@ def calculate(hand):
         return(c.totalValue)
 
 calculate(players_hand)
-players_value=c.totalValue
+
+player_value=c.totalValue
 print(player_value)
