@@ -170,7 +170,7 @@ def blackjack():
         print("Your opponent has won. You will now lose the number of hearts you gambled at the beginning of the round.")
         break
 
-print("Narrator: You stroll out of the bar, eventually making your way to the neighborhood of Fruity Fields. There, you run into your sidekick, Australian Henriques.")
+"""print("Narrator: You stroll out of the bar, eventually making your way to the neighborhood of Fruity Fields. There, you run into your sidekick, Australian Henriques.")
 sleep(delay)
 print("Australian Henriques: Bloody Yanks! I don't know why you're back here in Bananaland, with your bounty and all, but you should go.")
 sleep(delay)
@@ -214,24 +214,20 @@ def seer_fight():
     global health
     global new_health
     blackjack()
-    while players_sum > 21:
-        print("Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.")
-        new_health = health - gamble
-        health = new_health
-        if health <= 0:
-            print("You are out of health. Your game is over.")
+    while health > 0:
+        if players_sum > 21:
+            print("Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.")
+            new_health = health - gamble
+            health = new_health
+            blackjack()
+        elif players_sum < opponents_sum and opponents_sum < 21:
+            print("Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.")
+            new_health = health - gamble
+            health = new_health
+            blackjack()
+        elif opponents_sum > 21:
+            print("Lil Nas X: How could you have possibly defeated me, when I haven't lost since I began, yeah? I guess I'll help you now that you have proven yourself worthy.")
             break
-        blackjack()
-    while players_sum < opponents_sum and opponents_sum < 21:
-        print("Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.")
-        new_health = health - gamble
-        health = new_health
-        if health <= 0:
-            print("You are out of health. Your game is over.")
-            break
-        blackjack()
-    if opponents_sum > 21:
-        print("Lil Nas X: How could you have possibly defeated me, when I haven't lost since I began, yeah? I guess I'll help you now that you have proven yourself worthy.")
 seer_fight()
 
 print(f"Narrator: Your health is now {health}. You will need to survive the rest of this level with {health} health.")
@@ -270,7 +266,7 @@ print("Henchman: Kong... you are going to regret pulling that maneuver.")
 sleep(delay)
 print("King Kong: Squawk, squawk then birdie... let's do this.")
 sleep(delay)
-print(henchman)
+print(henchman)"""
 sleep(delay)
 gamble = int(input(f"Narrator: How much health would you like to gamble on the fight? You currently have {health} health: "))
 
@@ -295,15 +291,16 @@ def henchman_fight():
             break
         blackjack()
     if opponents_sum > 21:
-        henchman_health = 30 - gamble
-        if henchman_health <= 0:
-            print("King Kong: Bam. Scumbag down.")
-            sleep(delay)
-        elif henchman_health > 0:
+        henchman_health = 30
+        while henchman_health > 0:
+            henchman_health = 30 - gamble
             print("Australian Henriques: Watch out, this Yank's coming back for more.")
             sleep(delay)
             print(f"The henchman you are facing is now on {henchman_health}.")
-            henchman_fight()
+        while henchman_health <= 0:
+            print("King Kong: Bam. Scumbag down.")
+            sleep(delay)
+            break
 henchman_fight()
 
 #Next up: force the henchman fight to repeat, make fight scene, make boss fight, then done with Fruity Fields.#
