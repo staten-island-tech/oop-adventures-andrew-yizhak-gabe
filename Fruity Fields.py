@@ -6,6 +6,7 @@ delay = 3
 health = 100
 new_health = 100
 count = 0
+henchman_health = 30
 
 def blackjack():
     import random
@@ -171,7 +172,7 @@ def blackjack():
         print("Your opponent has won. You will now lose the number of hearts you gambled at the beginning of the round.")
         break
 
-print("Narrator: You stroll out of the bar, eventually making your way to the neighborhood of Fruity Fields. There, you run into your sidekick, Australian Henriques.")
+"""print("Narrator: You stroll out of the bar, eventually making your way to the neighborhood of Fruity Fields. There, you run into your sidekick, Australian Henriques.")
 sleep(delay)
 print("Australian Henriques: Bloody Yanks! I don't know why you're back here in Bananaland, with your bounty and all, but you should go.")
 sleep(delay)
@@ -268,9 +269,39 @@ sleep(delay)
 print("King Kong: Squawk, squawk then birdie... let's do this.")
 sleep(delay)
 print(henchman)
-sleep(delay)
+sleep(delay)"""
 gamble = int(input(f"Narrator: How much health would you like to gamble on the fight? You currently have {health} health: "))
 
-#Restart henchman fight here.#
-
-#Next up: force the henchman fight to repeat, make fight scene, make boss fight, then done with Fruity Fields.#
+def henchman_fight():
+    global health
+    global new_health
+    global henchman_health
+    while health > 0:
+        blackjack()
+        if players_sum > 21:
+            print("Narrator: The henchman wacks you with his baton, grinning as he slowly defeats you.")
+            new_health = health - gamble
+            health = new_health
+            if health <= 0:
+                print("You are out of health, and your game is over.")
+                break
+            blackjack()
+        elif players_sum < opponents_sum and opponents_sum < 21:
+            print("Narrator: The henchman wacks you with his baton, grinning as he slowly defeats you.")
+            new_health = health - gamble
+            health = new_health
+            if health <= 0:
+                print("You are out of health, and your game is over.")
+                break
+            blackjack()
+        elif opponents_sum > 21:
+            henchman_health = henchman_health - gamble
+            while henchman_health > 0:
+                print("Australian Henriques: Watch out, this Yank's coming back for more.")
+                sleep(delay)
+                print(f"Narrator: The henchman you are facing is now on {henchman_health} health.")
+                henchman_fight()
+            if henchman_health <= 0:
+                    print("King Kong: Bam. Scumbag down.")
+                    break
+henchman_fight()
