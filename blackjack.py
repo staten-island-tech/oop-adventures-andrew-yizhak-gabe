@@ -1,7 +1,7 @@
 import random
 from time import sleep
 
-def game(players_health,opponents_health):
+def blackjack():
     
     players_hand = []
     opponents_hand = []
@@ -13,10 +13,12 @@ def game(players_health,opponents_health):
     opponent_value=0
 
     class game(): 
-        def __init__(self,cardValue,cardDrawn,totalValue):
+        def __init__(self,cardValue,cardDrawn,totalValue,gambledHealth,wl):
             self.cardValue=cardValue
             self.cardrawn=cardDrawn
             self.totalValue=totalValue
+            self.gambledHealth=gambledHealth
+            self.wl=wl
     def card():
         return game
 
@@ -59,6 +61,7 @@ def game(players_health,opponents_health):
             return(c.totalValue)
 
     #THE GAME   
+    c.gambledhealth=input('input how much health you want too gamble:')
     draw('Your faceup',players_hand)
     draw('Your facedown',players_hand)
     sleep(delay) #the two lines above will tell the player what their hand is
@@ -91,6 +94,14 @@ def game(players_health,opponents_health):
             opponent_value=c.totalValue
     
     #win/loss 
-    if player_value>21 or (opponent_value>player_value and opponent_value>=21):
-        print('trueeeeee')
 
+    if player_value>21 or (opponent_value>player_value and opponent_value<=21):
+        c.wl='loss' 
+    elif player_value==opponent_value:
+        c.wl='tie'
+    else:
+        c.wl='win'
+    card()
+
+blackjack()
+print(blackjack.c.wl, blackjack.c.gambledHealth)
