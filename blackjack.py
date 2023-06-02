@@ -89,3 +89,8 @@ def game(players_health,opponents_health):
             draw('Your opponents new card',opponents_hand)
             calculate(opponents_hand)
             opponent_value=c.totalValue
+    
+    #win/loss 
+    if player_value>21 or (opponent_value>player_value and opponent_value>=21):
+        print('trueeeeee')
+
