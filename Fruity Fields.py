@@ -2,7 +2,7 @@ from time import sleep
 from classes import Lil_Nas_X
 from classes import henchman
 from classes import enforcer
-delay = 3
+delay = 4
 health = 100
 new_health = 100
 count = 0
@@ -53,7 +53,7 @@ def blackjack():
         print(f"{face_up_card}, and {face_down_card}")
     player_cards()
 
-    sleep(3)
+    sleep(2)
 
     def opponents_card():
         cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
@@ -92,7 +92,7 @@ def blackjack():
         print(f"{face_up_card}, and one facedown card.")
     opponents_card()
 
-    sleep(3)
+    sleep(2)
 
     hit_or_stand = input("Would you like to hit or stand? Hit/Stand: ")
     while hit_or_stand == "Hit":
@@ -172,7 +172,7 @@ def blackjack():
         print("Your opponent has won. You will now lose the number of hearts you gambled at the beginning of the round.")
         break
 
-"""print("Narrator: You stroll out of the bar, eventually making your way to the neighborhood of Fruity Fields. There, you run into your sidekick, Australian Henriques.")
+print("Narrator: You stroll out of the bar, eventually making your way to the neighborhood of Fruity Fields. There, you run into your sidekick, Australian Henriques.")
 sleep(delay)
 print("Australian Henriques: Bloody Yanks! I don't know why you're back here in Bananaland, with your bounty and all, but you should go.")
 sleep(delay)
@@ -215,18 +215,21 @@ sleep(delay)
 def seer_fight():
     global health
     global new_health
-    blackjack()
-    while health > 0:
+    placeholder = 0.1
+    while placeholder != 0:
+        blackjack()
         if players_sum > 21:
             print("Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.")
             new_health = health - gamble
             health = new_health
-            blackjack()
+            if health <= 0:
+                break
         elif players_sum < opponents_sum and opponents_sum < 21:
             print("Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.")
             new_health = health - gamble
             health = new_health
-            blackjack()
+            if health <= 0:
+                break
         elif opponents_sum > 21:
             print("Lil Nas X: How could you have possibly defeated me, when I haven't lost since I began, yeah? I guess I'll help you now that you have proven yourself worthy.")
             break
@@ -244,11 +247,11 @@ print("King Kong: Thank you. I need to go pay this Bobby Hill a visit.")
 sleep(delay)
 print("Australian Henriques: See ya later, yank.")
 sleep(delay)
-print("Narrator: You and Australian Henriques stroll out of the Seer's house, but when you get a few blocks away, a short, stocky man beings approaching you. He is carrying a baton made out of a long, powerful looking feather.")
+print("Narrator: You and Australian Henriques stroll out of the Seer's house, but when you get a few blocks away, a short, stocky bird beings approaching you. He is carrying a baton made out of a long, powerful looking feather.")
 sleep(delay)
 print("Australian Henriques: Kong... get behind me...")
 sleep(delay)
-print("Narrator: You dart behind Australian Henriques just as the stocky man reaches you, at which point you realize he is local law enforcement.")
+print("Narrator: You dart behind Australian Henriques just as the bird reaches you, at which point you realize they are local law enforcement.")
 sleep(delay)
 print("Henchman: Hello boys, how are you today?")
 sleep(delay)
@@ -269,14 +272,15 @@ sleep(delay)
 print("King Kong: Squawk, squawk then birdie... let's do this.")
 sleep(delay)
 print(henchman)
-sleep(delay)"""
+sleep(delay)
 gamble = int(input(f"Narrator: How much health would you like to gamble on the fight? You currently have {health} health: "))
 
 def henchman_fight():
     global health
     global new_health
     global henchman_health
-    while health > 0:
+    placeholder = 0.1
+    while placeholder != 0:
         blackjack()
         if players_sum > 21:
             print("Narrator: The henchman wacks you with his baton, grinning as he slowly defeats you.")
@@ -285,7 +289,6 @@ def henchman_fight():
             if health <= 0:
                 print("You are out of health, and your game is over.")
                 break
-            blackjack()
         elif players_sum < opponents_sum and opponents_sum < 21:
             print("Narrator: The henchman wacks you with his baton, grinning as he slowly defeats you.")
             new_health = health - gamble
@@ -293,7 +296,6 @@ def henchman_fight():
             if health <= 0:
                 print("You are out of health, and your game is over.")
                 break
-            blackjack()
         elif opponents_sum > 21:
             henchman_health = henchman_health - gamble
             while henchman_health > 0:
@@ -305,3 +307,35 @@ def henchman_fight():
                     print("King Kong: Bam. Scumbag down.")
                     break
 henchman_fight()
+
+while health <= 0:
+    break
+print(f"Narrator: Your health is now {health}. You will need to survive the rest of the level on {health} health.")
+sleep(delay)
+print("Narrator: Panting from your fight with the henchman, you look around to see police barricades, but you can't see how many policeman are blocking each exit.")
+sleep(delay)
+print("Australian Henriques: Right or left, mate?")
+sleep(delay)
+print("King Kong: I don't know...")
+sleep(delay)
+print("Australian Henriques: Mate, either make a decision or take your final L... but hurry up all the same.")
+sleep(delay)
+right_or_left = input("Narrator: Do you want to go right or left? One direction has more enemies than the other, but you will have to guess which. Right/Left: ")
+while right_or_left == "Right":
+    print("Narrator: Nice choice. As you and Australian Henriques run at the barricade, you see that 2 henchman and 1 enforcer are preventing your passage.")
+    sleep(delay)
+    print("Australian Henriques: One henchman each, mate, and then we'll handle the enforcer?")
+    sleep(delay)
+    print("King Kong: For sure.")
+    print(henchman)
+    sleep(delay)
+    break
+while right_or_left == "Left":
+    print("Narrator: Nice choice. As you and Australian Henriques run at the barricade, you see that 4 henchman and 2 enforcers are preventing your passage.")
+    sleep(delay)
+    print("Australian Henriques: 2 henchman and 1 enforcer each, mate. Damn, this'll be tricky.")
+    sleep(delay)
+    print(henchman)
+    sleep(delay)
+    print(henchman)
+    break
