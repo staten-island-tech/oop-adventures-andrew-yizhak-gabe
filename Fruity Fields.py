@@ -7,6 +7,7 @@ health = 100
 new_health = 100
 count = 0
 henchman_health = 30
+enforcer_health = 90
 
 def blackjack():
     import random
@@ -259,7 +260,7 @@ print("Australian Henriques: Alright, but these damn Yanks are acting crazy.")
 sleep(delay)
 print("Narrator: At this point, the henchman holds up a picture of King Kong.")
 sleep(delay)
-print("Henchman: You boys wouldn't have happened to see this monkey around here, have you? Because he is wanted by Bird Mafia.")
+print("Henchman: You boys wouldn't have happened to see this monkey around here, have you? Because he is wanted by the Bird Mafia.")
 sleep(delay)
 print("King Kong: I'm an ape, damn it!")
 sleep(delay)
@@ -307,6 +308,7 @@ def henchman_fight():
                     print("King Kong: Bam. Scumbag down.")
                     break
 henchman_fight()
+henchman_health = 30
 
 while health <= 0:
     break
@@ -327,6 +329,7 @@ while right_or_left == "Right":
     print("Australian Henriques: One henchman each, mate, and then we'll handle the enforcer?")
     sleep(delay)
     print("King Kong: For sure.")
+    sleep(delay)
     print(henchman)
     sleep(delay)
     break
@@ -339,3 +342,97 @@ while right_or_left == "Left":
     sleep(delay)
     print(henchman)
     break
+
+def enforcer_fight():
+    global health
+    global new_health
+    global enforcer_health
+    placeholder = 0.1
+    while placeholder != 0:
+        blackjack()
+        if players_sum > 21:
+            print("Narrator: You grunt in pain as one of the enforcer's feather bullets pierces your skin.")
+            new_health = health - gamble
+            health = new_health
+            if health <= 0:
+                print("You are out of health, and your game is over.")
+                break
+        elif players_sum < opponents_sum and opponents_sum < 21:
+            print("Narrator: You grunt in pain as one of the enforcer's feather bullets pierces your skin.")
+            new_health = health - gamble
+            health = new_health
+            if health <= 0:
+                print("You are out of health, and your game is over.")
+                break
+        elif opponents_sum > 21:
+            enforcer_health = enforcer_health - gamble
+            while enforcer_health > 0:
+                print("Australian Henriques: This guy's a fiesty one. He's probably a Brit.")
+                sleep(delay)
+                print(f"Narrator: The enforcer you are facing is now on {enforcer_health} health.")
+                enforcer_fight()
+            if enforcer_health <= 0:
+                    print("King Kong: Sit down... permanently. No one messes with the Kong and gets away with it.")
+                    break
+enforcer_fight() #remember to remove before readding shit to the level.#
+
+while right_or_left == "Right":
+    gamble = int(input(f"How much would you like to gamble on the fight? You currently have {health} health. Enter here: "))
+    sleep(delay)
+    henchman_fight()
+    if health <= 0:
+        break
+    henchman_health = 30
+    sleep(delay)
+    print("Narrator: You look over and see that, tragically, the enforcer has bested Australian Henriques after he [Australian Henriques] defeated a henchman.")
+    sleep(delay)
+    print("King Kong: No... Australian Henriques... You'll pay for this, bird.")
+    sleep(delay)
+    gamble = int(input(f"How much would you like to gamble on the fight? You currently have {health} health. Enter here: "))
+    sleep(delay)
+    print(enforcer)
+    sleep(delay)
+    enforcer_fight()
+while right_or_left == "Left":
+    print("Narrator: Australian Henriques runs at the barricade, dueling two of the henchman in an intense game of blackjack. However, Australian Henriques busts against the second and is knocked out cold by a flying feather baton.")
+    sleep(delay)
+    print("King Kong: Oh... this is bad.")
+    sleep(delay)
+    print("Narrator: You will have to defeat three henchman and one enforcer to make is past the police barricade.")
+    sleep(delay)
+    gamble = int(input(f"How much would you like to gamble on the fight? You currently have {health} health. Enter here: "))
+    sleep(delay)
+    print(henchman)
+    sleep(delay)
+    henchman_fight()
+    if health <= 0:
+        break
+    henchman_health = 30
+    sleep(delay)
+    gamble = int(input(f"How much would you like to gamble on the fight? You currently have {health} health. Enter here: "))
+    sleep(delay)
+    print(henchman)
+    sleep(delay)
+    henchman_fight()
+    if health <= 0:
+        break
+    henchman_health = 30
+    sleep(delay)
+    gamble = int(input(f"How much would you like to gamble on the fight? You currently have {health} health. Enter here: "))
+    sleep(delay)
+    print(henchman)
+    sleep(delay)
+    henchman_fight()
+    if health <= 0:
+        break
+    sleep(delay)
+    gamble = int(input(f"How much would you like to gamble on the fight? You currently have {health} health. Enter here: "))
+    sleep(delay)
+    print(enforcer)
+    sleep(delay)
+    enforcer_fight()
+
+while health <= 0:
+    break
+henchman_health = 30
+enforcer_health = 90
