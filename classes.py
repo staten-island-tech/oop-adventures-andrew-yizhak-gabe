@@ -16,25 +16,26 @@ class Enemy(User):
         return f"{self.name}, {self.health}"
 
 class Henchman(Enemy):
-    def __init__(self, name, health, hand):
+    def __init__(self, name, health, weapon):
         super().__init__(name, health)
-        self.hand = hand
+        self.weapon = weapon
     def __str__(self):
-        return f"{self.name}, {self.health}, {self.hand}"
+        return f"{self.name}, {self.health}, {self.weapon}"
 
 class Enforcer(Enemy):
-    def __init__(self, name, health, hand):
+    def __init__(self, name, health, weapon):
         super().__init__(name, health)
-        self.hand = hand
+        self.weapon = weapon
     def __str__(self):
-        return f"{self.name}, {self.health}, {self.hand}"
+        return f"{self.name}, {self.health}, {self.weapon}"
 
 class Boss(Enforcer):
-    def __init__(self, name, health, hand, region):
-        super().__init__(name, health, hand)
+    def __init__(self, name, health, weapon, region, replenish):
+        super().__init__(name, health, weapon)
         self.region = region
+        self.replenish = replenish
     def __str__(self):
-        return f"{self.name}, {self.health}, {self.hand}, {self.region}"
+        return f"{self.name}, {self.health}, {self.weapon}, {self.region}, {self.replenish}"
 
 enemies = []
 henchmen = []
@@ -47,20 +48,20 @@ def create_new_enemy(name, health):
     for enemy in enemies:
         print(enemy)
 
-def create_new_henchman(name, health, hand):
-    new_henchman = Henchman(name, health, hand)
+def create_new_henchman(name, health, weapon):
+    new_henchman = Henchman(name, health, weapon)
     henchmen.append(new_henchman)
     for henchman in henchmen:
         print(henchman)
 
-def create_new_enforcer(name, health, hand):
-    new_enforcer = Enforcer(name, health, hand)
+def create_new_enforcer(name, health, weapon):
+    new_enforcer = Enforcer(name, health, weapon)
     enforcers.append(new_enforcer)
     for enforcer in enforcers:
         print(enforcer)
 
-def create_new_boss(name, health, hand, region):
-    new_boss = Boss(name, health, hand, region)
+def create_new_boss(name, health, weapon, region, replenish):
+    new_boss = Boss(name, health, weapon, region, replenish)
     bosses.append(new_boss)
     for boss in bosses:
         print(boss)
@@ -68,14 +69,15 @@ def create_new_boss(name, health, hand, region):
 random_bird = random.choice(birds)
 random_region = random.choice(regions)
 
-henchman = Henchman(random_bird, 30, "HAND")
-enforcer = Enforcer(random_bird, 50, "HAND")
-Tweety = Boss("Tweety", 100, "HAND", random_region) #Player Health After: 150#
-Steve = Boss("S.T.E.V.E", 200, "HAND", random_region) #Player Health After: 250#
-Terrence = Boss("Terrence", 400, "HAND", random_region) #Player Health After: 450#
-Private = Boss("Private", 700, "HAND", "NewNana") #Player Health After: 800#
-Rico = Boss("Rico", 1100, "HAND", "NewNana") #Player Health After: 1350#
-Kowalski = Boss("Kowalski", 1800, "HAND", "NewNana") #Player Health After: 2250#
-Skipper = Boss("Skipper", 3000, "HAND", "NewNana") #Player Health After: 3750#
-King_Ghidorah = Boss("King Ghidorah", 5000, "HAND", random_region) #Player Health After: 6500#
-Biggest_Bird = Boss("Biggest Bird", 10000, "HAND", "Big Bird's Bar")
+henchman = Henchman(random_bird, 30, "Feather Baton")
+enforcer = Enforcer(random_bird, 50, "Feather SMG")
+Lil_Nas_X = Boss("Lil_Nas_X", 1, "Magic Orb", "Fruity Fields", False)
+Tweety = Boss("Tweety", 100, "HAND", "Fruity Fields", True) #Player Health After: 150#
+Steve = Boss("S.T.E.V.E", 200, "HAND", 'Ripe Ravine', True) #Player Health After: 250#
+Terrence = Boss("Terrence", 400, "HAND", 'Plantain Plateau', True) #Player Health After: 450#
+Private = Boss("Private", 700, "HAND", "NewNana", True) #Player Health After: 800#
+Rico = Boss("Rico", 1100, "HAND", "NewNana", True) #Player Health After: 1350#
+Kowalski = Boss("Kowalski", 1800, "HAND", "NewNana", True) #Player Health After: 2250#
+Skipper = Boss("Skipper", 3000, "HAND", "NewNana", True) #Player Health After: 3750#
+King_Ghidorah = Boss("King Ghidorah", 5000, "HAND", 'Potassium Palace', True) #Player Health After: 6500#
+Biggest_Bird = Boss("Biggest Bird", 10000, "HAND", "Big Bird's Bar", False)

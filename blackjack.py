@@ -4,9 +4,7 @@ def blackjack():
     
     players_hand = list()
     opponents_hand = list()
-    global cards
     cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
-    global suits
     suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
 
     def player_cards():
@@ -43,12 +41,12 @@ def blackjack():
         print(f"{face_up_card}, and {face_down_card}")
     player_cards()
 
-    sleep(2.5)
+    sleep(3)
 
     def opponents_card():
         cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
         suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
-    
+
         face_up_value = random.choice(cards)
         if face_up_value == 10:
             possible_cards = ["10", "Jack", "Queen", "King"]
@@ -82,7 +80,7 @@ def blackjack():
         print(f"{face_up_card}, and one facedown card.")
     opponents_card()
 
-    sleep(2.5)
+    sleep(3)
 
     hit_or_stand = input("Would you like to hit or stand? Hit/Stand: ")
     while hit_or_stand == "Hit":
@@ -120,7 +118,7 @@ def blackjack():
         players_sum = sum(players_hand)
         player_position = players_sum
         print(f"Your total card value is {players_sum}. If your opponent has a higher card value than {players_sum}, you will lose. If they have a lower card value than {players_sum}, you will win.")
-    
+
     while player_position == players_sum:
         opponents_sum = sum(opponents_hand)
         if opponents_sum > players_sum:
@@ -151,7 +149,7 @@ def blackjack():
         opponents_hand.append(new_card_value)
         opponents_sum = sum(opponents_hand)
         if opponents_sum > 21:
-            print("Your opponent has busted. You have defeated your opponent, and absorbed half of their hearts.")
+            print("Your opponent has busted. You have defeated your opponent.")
             break
         elif opponents_sum < 21 and opponents_sum < players_sum:
             hit_or_stand = player_position
