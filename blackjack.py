@@ -1,29 +1,30 @@
 import random
 from time import sleep
 
-def blackjack():
+
     
-    players_hand = []
-    opponents_hand = []
-    cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
-    Tens=['10','Jack','Queen','King']
-    suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
-    delay=1
-    player_value=0
-    opponent_value=0
+players_hand = []
+opponents_hand = []
+cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
+Tens=['10','Jack','Queen','King']
+suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
+delay=1
+player_value=0
+opponent_value=0
 
-    class game(): 
-        def __init__(self,cardValue,cardDrawn,totalValue,gambledHealth,wl):
-            self.cardValue=cardValue
-            self.cardrawn=cardDrawn
-            self.totalValue=totalValue
-            self.gambledHealth=gambledHealth
-            self.wl=wl
-    def card():
-        return game
+class game(): 
+    def __init__(self,cardValue,cardDrawn,totalValue,gambledHealth,wl):
+        self.cardValue=cardValue
+        self.cardrawn=cardDrawn
+        self.totalValue=totalValue
+        self.gambledHealth=gambledHealth
+        self.wl=wl
+def card():
+    return game
 
-    c=card()
+c=card()
     #cardValue represents the value of the cards. cardDrawn will allow us too
+def blackjack():
     def draw(facing,hand):
         c.cardValue = random.choice(cards)
         if c.cardValue == 10:
@@ -61,7 +62,7 @@ def blackjack():
             return(c.totalValue)
 
     #THE GAME   
-    c.gambledhealth=input('input how much health you want too gamble:')
+    c.gambledHealth=input('input how much health you want too gamble:')
     draw('Your faceup',players_hand)
     draw('Your facedown',players_hand)
     sleep(delay) #the two lines above will tell the player what their hand is
@@ -101,7 +102,7 @@ def blackjack():
         c.wl='tie'
     else:
         c.wl='win'
-    card()
+    return(c.wl,c.gambledHealth)
 
 blackjack()
-print(blackjack.c.wl, blackjack.c.gambledHealth)
+print(c.wl, c.gambledHealth)
