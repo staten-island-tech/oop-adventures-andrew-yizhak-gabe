@@ -2,12 +2,14 @@ from time import sleep
 from classes import Lil_Nas_X
 from classes import henchman
 from classes import enforcer
+from classes import Tweety
 delay = 4
 health = 100
 new_health = 100
 count = 0
 henchman_health = 30
 enforcer_health = 90
+tweety_health = 100
 
 def blackjack():
     import random
@@ -374,7 +376,6 @@ def enforcer_fight():
             if enforcer_health <= 0:
                     print("King Kong: Sit down... permanently. No one messes with the Kong and gets away with it.")
                     break
-enforcer_fight() #remember to remove before readding shit to the level.#
 
 while right_or_left == "Right":
     gamble = int(input(f"How much would you like to gamble on the fight? You currently have {health} health. Enter here: "))
@@ -436,3 +437,81 @@ while health <= 0:
     break
 henchman_health = 30
 enforcer_health = 90
+
+print("Narrator: You scoop up Australian Henriques, sprinting away from the police chasing you.")
+sleep(delay)
+print("Narrator: Once you have gained a good bit of distance between yourself and the Bird Mafia, you turn into a dark alleyway, trying to find a way to get Australian Henriques to a hospital without being noticed.")
+sleep(delay)
+print("Narrator: Just when you think you are safe, an ominous voice comes out of the back of the alleyway.")
+sleep(delay)
+print("Tweety: Well, well, well... look who it is...")
+sleep(delay)
+print("King Kong: Tweety - the first leader of the Bird Mafia... come to stop me, I suppose...")
+sleep(delay)
+print("Tweety: Listen, I'm just here to arrest you. We can do this peacefully, or violently, which will surely result in your friend failing to get the help he needs... it's your call.")
+sleep(delay)
+print("King Kong: If you think I'm willingly submitting to your regime, you've got something coming... tweet to your friends all you want, but I'll take down every leader in the Bird Mafia. You're just the first.")
+sleep(delay)
+print("Tweety: Fine by me... let's do this, you overgrown monkey.")
+sleep(delay)
+print("Narrator: Boss fights are a bit more difficult than fights against henchman or enforcers because you can't gamble more health than you have, but you will replenish any health you have lost after the fight.")
+sleep(delay)
+print(f"Narrator: For reference, you are currently on {health} health.")
+sleep(delay)
+print(Tweety)
+sleep(delay)
+gamble = int(input(f"How much would you like to gamble against Tweety? Remember than it cannot be more than your current health, which is {health} health. Enter your gamble here: "))
+
+def tweety_fight():
+    global health
+    global new_health
+    global tweety_health
+    while gamble <= health:
+        blackjack()
+        if players_sum > 21:
+            print("Tweety: I tink I taw a puddycat... oh wait... it's just you.")
+            new_health = health - gamble
+            health = new_health
+            if health <= 0:
+                print("You are out of health, and your game is over.")
+                break
+        elif players_sum < opponents_sum and opponents_sum < 21:
+            print("Tweety: I tink I taw a puddycat... oh wait... it's just you.")
+            new_health = health - gamble
+            health = new_health
+            if health <= 0:
+                print("You are out of health, and your game is over.")
+                break
+        elif opponents_sum > 21:
+            tweety_health = enforcer_health - gamble
+            while tweety_health > 0:
+                print("King Kong: Revenge is a dish best served with yellow canary on top.")
+                sleep(delay)
+                print(f"Narrator: Tweety is now on {tweety_health} health.")
+                enforcer_fight()
+            if tweety_health <= 0:
+                    print("King Kong: One of five leaders down... gotta get Australian Henriques some medical treatment.")
+                    break
+    while gamble > health:
+        gamble = int(input(f"How much would you like to gamble against Tweety? Remember than it cannot be more than your current health, which is {health} health. Enter your gamble here: "))
+        tweety_fight()
+tweety_fight()
+
+while health <= 0:
+    break
+
+print("Narrator: As you watch Tweety fall to the floor, defeated, you scoop up Australian Henriques and sprint towards the nearest hospital. However, halfway there, you are pulled into an alley.")
+sleep(delay)
+print("Nurse: Hello, Kong.")
+sleep(delay)
+print("Narrator: The nurse gestures to the room you are now in, which seems to be a cross between a hospital and a shop.")
+sleep(delay)
+print("Nurse: My associates and I lead a feeble branch of the resistance against the Bird Mafia. In each of the five main neighborhoods here in BananaLand, we have a branch of Resistance.Co, the name of our nonprofit. Here, let me take your friend to your hospital, and we can send him to meet you when he is healthy.")
+sleep(delay)
+print("Nurse: What is his name, and where should he meet you when he is ready?")
+sleep(delay)
+print("King Kong: His name is Australian Henriques. Please send him to Bobby Hill's house in NewNana when he is healthy.")
+sleep(delay)
+print("Nurse: Wonderful. Would you like to check out our shop now, perhaps buy some helpful weapons.")
+sleep(delay)
+print("Narrator: You travel to the shop room of the resistance base.")
