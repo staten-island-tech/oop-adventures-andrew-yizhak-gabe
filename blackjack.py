@@ -20,8 +20,7 @@ class game():
 def card():
     return game
 
-c=card()
-    #cardValue represents the value of the cards. cardDrawn will allow us too
+c=card() 
 def blackjack():
     def draw(facing,hand):
         c.cardValue = random.choice(cards)
@@ -54,14 +53,12 @@ def blackjack():
                         c.totalValue+=11
                         c.totalValue    
 
-            return(c.totalValue)
-
-    #THE GAME   
-    c.gambledHealth=input('input how much health you want too gamble:')
+            return(c.totalValue)#THE GAME   
+            
+    c.gambledHealth=input('input how much health you want to gamble:')
     draw('Your faceup',players_hand)
     draw('Your facedown',players_hand)
     sleep(delay) #the two lines above will tell the player what their hand is
-    opponents_hand.append(random.choice(cards))
     draw("Your opponent has one facedown card, and their faceup",opponents_hand) #Opponents hand
     sleep(delay)
     calculate(players_hand)
@@ -81,12 +78,17 @@ def blackjack():
 
     if player_value<=21:
         print('OK, let\'s see what cards the dealer has.')
+        draw('Your opponent\'s facedown',opponents_hand)
         while opponent_value<player_value:
-            draw('Your opponents new card',opponents_hand)
+            
             calculate(opponents_hand)
+            sleep(delay)
+            print(f'Your opponent\'s hand is valued at {c.totalValue}. ')
+            draw('Your opponent draws another card. Their new',opponents_hand)
+            sleep(delay)
             opponent_value=c.totalValue
-    
-    #win/loss 
+    else: 
+        print('Oh no! You busted.')#win/loss 
 
     if player_value>21 or (opponent_value>player_value and opponent_value<=21):
         c.wl='loss' 
@@ -95,4 +97,3 @@ def blackjack():
     else:
         c.wl='win'
     return(c.wl,c.gambledHealth)
-
