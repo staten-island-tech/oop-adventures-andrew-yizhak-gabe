@@ -129,6 +129,12 @@ while map == "Ripe Ravine":
                     print(f"Your purchase has been completed! New Balance: {money.currency} New Badge Unlocked: Ripe Ravine Badge")
                     sleep(2)
                     economical_decision = input("State what you would like to purchase: Health, Skip-a-Fight, Ripe Ravine Badge, Go Back")
+    if decision == "Healing Spot":
+        print("You bathe in the pools of the Potassium Pool")
+        health = health + 15 
+        sleep(2)
+        print("As a result, your health has increased by 15!")
+
     if decision == "Talk to Banana Caveman":
         print("Travelling to the Cave of Banana Caveman...")
         sleep(3)
@@ -136,7 +142,11 @@ while map == "Ripe Ravine":
         caveman_decision = input('Banana Caveman: "Would you like to give me money for no reason?" Y/N') 
         if caveman_decision == "Y":
             money.currency = money.currency - 1
-            i
+            print('Banana Caveman: "Thanks. No reward though hahaha"')
+            sleep(2)
+        if caveman_decision == "N":
+            print('Banana Caveman: "Alright whatever leave"')
+            sleep(2)
 while map == "Plaintain Plateau":
     decision = input("Where would you like to travel?: Store, Talk to Banana Merchant, Fight the Miniboss, Regular Fight, Healing Spot")
     if decision == "Store":
