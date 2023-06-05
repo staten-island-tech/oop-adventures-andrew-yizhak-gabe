@@ -1,8 +1,6 @@
 import random
 from time import sleep
 
-
-    
 players_hand = []
 opponents_hand = []
 cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
@@ -35,13 +33,11 @@ def blackjack():
                 c.cardDrawn=(f"{facing} card is the ace of {random.choice(suits)}.")
         hand.append(c.cardValue)
         print(c.cardDrawn)
-        print(hand)#DELETE ONCE TESTING IS OVER 
 
     def calculate(hand): 
         c.totalValue=0
         if 11 not in hand:
             c.totalValue=sum(hand)
-            print(c.totalValue) #DELETE ONCE TESTING IS OVER
             return c.totalValue
         else:
             ace=0
@@ -57,8 +53,7 @@ def blackjack():
                     else:
                         c.totalValue+=11
                         c.totalValue    
-            
-            print(c.totalValue)
+
             return(c.totalValue)
 
     #THE GAME   
@@ -79,7 +74,6 @@ def blackjack():
         draw('Your new',players_hand)
         calculate(players_hand)
         player_value=c.totalValue
-        print(player_value)
         if player_value<=21:
             hit=input('Do you want to hit, or stand? |HIT/STAND| ').upper() #ERROR WITH BUSTING, MAKE SURE TO FIX
         else: 
@@ -88,8 +82,6 @@ def blackjack():
     if player_value<=21:
         print('OK, let\'s see what cards the dealer has.')
         while opponent_value<player_value:
-            print(opponents_hand)
-            print(players_hand)
             draw('Your opponents new card',opponents_hand)
             calculate(opponents_hand)
             opponent_value=c.totalValue
@@ -104,5 +96,3 @@ def blackjack():
         c.wl='win'
     return(c.wl,c.gambledHealth)
 
-blackjack()
-print(c.wl, c.gambledHealth)
