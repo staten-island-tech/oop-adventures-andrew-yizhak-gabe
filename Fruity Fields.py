@@ -3,6 +3,9 @@ from classes import Lil_Nas_X
 from classes import henchman
 from classes import enforcer
 from classes import Tweety
+import money
+badges = []
+inventory = []
 delay = 4
 health = 100
 new_health = 100
@@ -238,6 +241,8 @@ def seer_fight():
             break
 seer_fight()
 
+#enter loss shit here.#
+
 print(f"Narrator: Your health is now {health}. You will need to survive the rest of this level with {health} health.")
 sleep(delay)
 print("Lil Nas X: Okay, so you said you need to bring about the drums of liberation. How exactly do you plan to take down the bird mafia?")
@@ -312,8 +317,8 @@ def henchman_fight():
 henchman_fight()
 henchman_health = 30
 
-while health <= 0:
-    break
+#enter loss shit here.#
+
 print(f"Narrator: Your health is now {health}. You will need to survive the rest of the level on {health} health.")
 sleep(delay)
 print("Narrator: Panting from your fight with the henchman, you look around to see police barricades, but you can't see how many policeman are blocking each exit.")
@@ -433,8 +438,8 @@ while right_or_left == "Left":
     sleep(delay)
     enforcer_fight()
 
-while health <= 0:
-    break
+print(health)
+
 henchman_health = 30
 enforcer_health = 90
 
@@ -497,8 +502,7 @@ def tweety_fight():
         tweety_fight()
 tweety_fight()
 
-while health <= 0:
-    break
+print(health)
 
 print("Narrator: As you watch Tweety fall to the floor, defeated, you scoop up Australian Henriques and sprint towards the nearest hospital. However, halfway there, you are pulled into an alley.")
 sleep(delay)
@@ -512,6 +516,7 @@ print("Nurse: What is his name, and where should he meet you when he is ready?")
 sleep(delay)
 print("King Kong: His name is Australian Henriques. Please send him to Bobby Hill's house in NewNana when he is healthy.")
 sleep(delay)
-print("Nurse: Wonderful. Would you like to check out our shop now, perhaps buy some helpful weapons.")
+print("Nurse: Wonderful. Would you like to check out our shop now, perhaps buy some helpful weapons? Actually, scratch that. You take anything you need for free, because you are the only one taking action to bring about the drums of liberation.")
 sleep(delay)
-print("Narrator: You travel to the shop room of the resistance base.")
+print("Narrator: You walk into the shop room of the resistance base. There, you see items for all occassions of fighting the Bird Mafia.")
+sleep(delay)
