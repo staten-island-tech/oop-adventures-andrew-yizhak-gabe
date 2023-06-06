@@ -8,15 +8,6 @@ class User:
         self.name = name
     new_id = str(uuid.uuid4())
 
-class Player(User):
-    def __init__(self,name,health):
-        super().init(name)
-        self.name='King Kong'
-        self.health=health
-    def __str__(self):
-        return f"{self.name},{self.health}"
-
-
 class Enemy(User):
     def __init__(self, name, health):
         super().__init__(name)
