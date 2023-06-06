@@ -1,7 +1,9 @@
 import blackerjack
 from time import sleep
 import classescopy
-delay=4
+from FIGHT import fight
+delay=3
+players_health=100
 
 print("Narrator: You stroll out of the bar, eventually making your way to the neighborhood of Fruity Fields. There, you run into your sidekick, Australian Henriques.")
 sleep(delay)
@@ -35,40 +37,32 @@ print("King Kong: If you want a challenge, then bring it. Your skills are the le
 sleep(delay)
 print("Lil Nas X: Eh? I haven't lost since I began, yeah.")
 sleep(delay)
-print(f"Narrator: In Bananaland, when you accept a challenge from an opponent, their stats will flash on your screen. Furthermore, you currently have {health} health. You must gamble a certain amount of health, and you will either lose it or absorb your opponents health. Your opponent will automatically gamble the same amount of health as you, unless they are a hit opponent, who you will have to defeat once for each number of hits.")
+print(f"Narrator: In Bananaland, when you accept a challenge from an opponent, their stats will flash on your screen. Furthermore, you currently have {players_health} health. You must gamble a certain amount of health, and you will either lose it or absorb your opponents health. Your opponent will automatically gamble the same amount of health as you, unless they are a hit opponent, who you will have to defeat once for each number of hits.")
 sleep(delay)
 gamble = 10
 print("Narrator: Normally, you will have to gamble a certain amount of health to lower an enemy. However, Lil Nas X is a special hit boss, so your gamble will automatically be 10 per 1 hit.")
 sleep(delay)
+
 Lil_Nas_X = classescopy.Boss("Lil_Nas_X", 1, "Magic Orb", "Fruity Fields", False)
 print(Lil_Nas_X)
 sleep(delay)
 
-while 
-def seer_fight():
-    global health
-    global new_health
-    placeholder = 0.1
-    while placeholder != 0:
-        blackjack()
-        if players_sum > 21:
+fight(Lil_Nas_X,"Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.","Lil Nas X: Nice try, but this one is for the champions. And I haven't lost since I began yeah.","Lil Nas X: How could you have possibly defeated me, when I haven't lost since I began, yeah? I guess I'll help you now that you have proven yourself worthy.")
+play=True #START HERE WHEN YOU EDIT AGAIN
+while play==True:
+        
+        blackerjack.blackjack()
+        if blackerjack.c.wl=='loss':
             print("Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.")
-            new_health = health - gamble
-            health = new_health
-            if health <= 0:
-                break
-        elif players_sum < opponents_sum and opponents_sum < 21:
-            print("Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.")
-            new_health = health - gamble
-            health = new_health
-            if health <= 0:
-                break
-        elif opponents_sum > 21:
-            print("Lil Nas X: How could you have possibly defeated me, when I haven't lost since I began, yeah? I guess I'll help you now that you have proven yourself worthy.")
-            break
-seer_fight()
 
-print(f"Narrator: Your health is now {health}. You will need to survive the rest of this level with {health} health.")
+            
+        elif blackerjack.c.wl=='tie':
+            print("Lil Nas X: Nice try, but this one is for the champions. And I haven't lost since I began yeah.")
+           
+        else:
+            print("Lil Nas X: How could you have possibly defeated me, when I haven't lost since I began, yeah? I guess I'll help you now that you have proven yourself worthy.")
+            play=False
+
 sleep(delay)
 print("Lil Nas X: Okay, so you said you need to bring about the drums of liberation. How exactly do you plan to take down the bird mafia?")
 sleep(delay)
@@ -104,46 +98,36 @@ print("Henchman: Kong... you are going to regret pulling that maneuver.")
 sleep(delay)
 print("King Kong: Squawk, squawk then birdie... let's do this.")
 sleep(delay)
-print(henchman)
+henchman=classescopy.Henchman(classescopy.random_bird, 30, "Feather Baton")
 sleep(delay)
-gamble = int(input(f"Narrator: How much health would you like to gamble on the fight? You currently have {health} health: "))
 
-def henchman_fight():
-    global health
-    global new_health
-    global henchman_health
-    placeholder = 0.1
-    while placeholder != 0:
-        blackjack()
-        if players_sum > 21:
-            print("Narrator: The henchman wacks you with his baton, grinning as he slowly defeats you.")
-            new_health = health - gamble
-            health = new_health
-            if health <= 0:
-                print("You are out of health, and your game is over.")
-                break
-        elif players_sum < opponents_sum and opponents_sum < 21:
-            print("Narrator: The henchman wacks you with his baton, grinning as he slowly defeats you.")
-            new_health = health - gamble
-            health = new_health
-            if health <= 0:
-                print("You are out of health, and your game is over.")
-                break
-        elif opponents_sum > 21:
-            henchman_health = henchman_health - gamble
-            while henchman_health > 0:
-                print("Australian Henriques: Watch out, this Yank's coming back for more.")
-                sleep(delay)
-                print(f"Narrator: The henchman you are facing is now on {henchman_health} health.")
-                henchman_fight()
-            if henchman_health <= 0:
-                    print("King Kong: Bam. Scumbag down.")
-                    break
-henchman_fight()
-henchman_health = 30
+play=True
+while play==True:
 
-while health <= 0:
-    break
+    gambledHealth=int(input(f"Narrator: How much health would you like to gamble on the fight? You currently have {players_health} health: "))
+
+    blackerjack.blackjack()
+    if blackerjack.c.wl=='Loss:'
+        print("Narrator: The henchman wacks you with his baton, grinning as he slowly defeats you.")
+        players_health-=gambledHealth
+    
+    elif blackerjack.c.wl=='tie':
+        print('Narrator: King Kong and the henchman are at a standstil, trying to defeat one another.')
+    else:
+
+        henchman.health-=gambledHealth     
+        print("Australian Henriques: Watch out, this Yank's coming back for more.")
+        sleep(delay)
+        print(f"Narrator: The henchman you are facing is now on {henchman.health} health.")
+            
+        if henchman.health < 1:
+                print("King Kong: Bam. Scumbag down.")
+                play=False
+        elif players_health<1:
+            print("You may have been defeated. But there's always another chance. Here, try again.")
+            players_health=100
+            print('Try again:')
+
 print(f"Narrator: Your health is now {health}. You will need to survive the rest of the level on {health} health.")
 sleep(delay)
 print("Narrator: Panting from your fight with the henchman, you look around to see police barricades, but you can't see how many policeman are blocking each exit.")
@@ -154,8 +138,9 @@ print("King Kong: I don't know...")
 sleep(delay)
 print("Australian Henriques: Mate, either make a decision or take your final L... but hurry up all the same.")
 sleep(delay)
-right_or_left = input("Narrator: Do you want to go right or left? One direction has more enemies than the other, but you will have to guess which. Right/Left: ")
-while right_or_left == "Right":
+right_or_left = input("Narrator: Do you want to go right or left? One direction has more enemies than the other, but you will have to guess which. Right/Left: ").upper()
+
+if right_or_left == "RIGHT":
     print("Narrator: Nice choice. As you and Australian Henriques run at the barricade, you see that 2 henchman and 1 enforcer are preventing your passage.")
     sleep(delay)
     print("Australian Henriques: One henchman each, mate, and then we'll handle the enforcer?")
@@ -164,8 +149,8 @@ while right_or_left == "Right":
     sleep(delay)
     print(henchman)
     sleep(delay)
-    break
-while right_or_left == "Left":
+    
+elif right_or_left == "LEFT ":
     print("Narrator: Nice choice. As you and Australian Henriques run at the barricade, you see that 4 henchman and 2 enforcers are preventing your passage.")
     sleep(delay)
     print("Australian Henriques: 2 henchman and 1 enforcer each, mate. Damn, this'll be tricky.")
@@ -173,7 +158,7 @@ while right_or_left == "Left":
     print(henchman)
     sleep(delay)
     print(henchman)
-    break
+    
 
 def enforcer_fight():
     global health
@@ -344,4 +329,4 @@ print("King Kong: His name is Australian Henriques. Please send him to Bobby Hil
 sleep(delay)
 print("Nurse: Wonderful. Would you like to check out our shop now, perhaps buy some helpful weapons.")
 sleep(delay)
-print("Narrator: You travel to the shop room of the resistance base.")
+print("Narrator: You travel to the shop room of the resistance base.")"""

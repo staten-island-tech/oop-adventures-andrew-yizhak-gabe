@@ -11,11 +11,10 @@ player_value=0
 opponent_value=0
 
 class game(): 
-    def __init__(self,cardValue,cardDrawn,totalValue,gambledHealth,wl):
+    def __init__(self,cardValue,cardDrawn,totalValue,wl):
         self.cardValue=cardValue
         self.cardrawn=cardDrawn
         self.totalValue=totalValue
-        self.gambledHealth=gambledHealth
         self.wl=wl
 def card():
     return game
@@ -55,7 +54,7 @@ def blackjack():
 
             return(c.totalValue)#THE GAME   
             
-    c.gambledHealth=input('input how much health you want to gamble:')
+
     draw('Your faceup',players_hand)
     draw('Your facedown',players_hand)
     sleep(delay) #the two lines above will tell the player what their hand is
@@ -81,10 +80,10 @@ def blackjack():
         draw('Your opponent\'s facedown',opponents_hand)
         while opponent_value<player_value:
             
-            calculate(opponents_hand)
             sleep(delay)
+            draw('Your opponent draws another card. Their new',opponents_hand)   
+            calculate(opponents_hand)
             print(f'Your opponent\'s hand is valued at {c.totalValue}. ')
-            draw('Your opponent draws another card. Their new',opponents_hand)
             sleep(delay)
             opponent_value=c.totalValue
     else: 
@@ -96,4 +95,4 @@ def blackjack():
         c.wl='tie'
     else:
         c.wl='win'
-    return(c.wl,c.gambledHealth)
+    return(c.wl)
