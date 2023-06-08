@@ -3,16 +3,16 @@ from classes import Lil_Nas_X
 from classes import henchman
 from classes import enforcer
 from classes import Tweety
-import money
-badges = []
-inventory = []
 delay = 4
 health = 100
 new_health = 100
-count = 0
+banana_bucks = 0
 henchman_health = 30
 enforcer_health = 90
 tweety_health = 100
+Health = 0
+skip_a_fight = 0
+banana_banana = False
 
 def blackjack():
     import random
@@ -490,12 +490,18 @@ def tweety_fight():
                 print(f"Narrator: Tweety is now on {tweety_health} health.")
                 enforcer_fight()
             if tweety_health <= 0:
-                    print("King Kong: One of five leaders down... gotta get Australian Henriques some medical treatment.")
+                    print("King Kong: Feathers flying everywhere, feathers fly all through the air!")
                     break
     while gamble > health:
         gamble = int(input(f"How much would you like to gamble against Tweety? Remember than it cannot be more than your current health, which is {health} health. Enter your gamble here: "))
         tweety_fight()
 tweety_fight()
+
+print("Narrator: In defeating Tweety, you have not only replenished your health to full, but you have upgraded your max health to 150. You have also earned 250 banana bucks, a currency used to purchase specific, rare, items in BananaLand.")
+health = 150
+new_health = 150
+banana_bucks += 250
+fruity_fields_completion = True
 
 if health > 0:
     print("Narrator: As you watch Tweety fall to the floor, defeated, you scoop up Australian Henriques and sprint towards the nearest hospital. However, halfway there, you are pulled into an alley.")
@@ -510,9 +516,66 @@ if health > 0:
     sleep(delay)
     print("King Kong: His name is Australian Henriques. Please send him to Bobby Hill's house in NewNana when he is healthy.")
     sleep(delay)
-    print("Nurse: Wonderful. Would you like to check out our shop now, perhaps buy some helpful weapons? Actually, scratch that. You take anything you need for free, because you are the only one taking action to bring about the drums of liberation.")
-    sleep(delay)
     print("Narrator: You walk into the shop room of the resistance base. There, you see items for all occassions of fighting the Bird Mafia.")
     sleep(delay)
 elif health <= 0:
     exit()
+
+def store():
+    global banana_bucks
+    global Health
+    global skip_a_fight
+    global banana_banana
+
+    print("Narrator: Looking around, you see there are plenty of items to choose from. Please listen to the shopkeeper's instructions very carefully. Finally, do not buy more than you can afford.")
+    placeholder = 0.1
+    while placeholder != 0:
+        economic_decision = input("Shopkeeper: What would you like to do: purchase health, purchase a skip_a_fight, or talk to the Banana Banana? Enter (Health, Skip_a_Fight, Banana Banana, or Go Back) what you want to buy here: ")
+        if economic_decision == "Health":
+            print("Shopkeeper: Health will allow you to give yourself a health boost at the beginning of every fight. Each Health will give you a quick boost of 10 normal health for when you need it.")
+            sleep(delay)
+            purchase = int(input("Shopkeeper: How many Health would you like to buy? They cost 10 banana bucks each. Please note that you can only have 10 in your inventory at any given time. Enter here: "))
+            if Health + purchase > 10:
+                print("Narrator: You did not listen to the shopkeeper, which means you cannot be trusted to defeat the Bird Mafia. Goodbye.")
+                exit()
+            elif Health + purchase <= 10:
+                Health = Health + purchase
+                price = purchase * 10
+                banana_bucks = banana_bucks - price
+                print(f"Narrator: Congratulations. You now have {Health} Health in your inventory.")
+        elif economic_decision == "Skip_a_Fight":
+            print("Shopkeeper: A skip a fight will allow you to skip one MINOR fight at any moment you like. Please note that you can only have one skip a fight at any given time.")
+            sleep(delay)
+            purchase = int(input("Shopkeeper: How many Skip a Fight(s) would you like to buy? They cost 50 banana bucks each. Enter here: "))
+            if skip_a_fight + purchase > 1:
+                print("Narrator: Come on... I warned you about not listening to the shopkeeper.")
+                exit()
+            elif skip_a_fight + purchase <= 1:
+                skip_a_fight = skip_a_fight + purchase
+                price = purchase * 50
+                banana_bucks = banana_bucks - price
+                print(f"Narrator: Noice. You now have {skip_a_fight} Skip a Fight in your inventory.")
+            else:
+                print("Narrator: ... ... ...")
+                exit()
+        elif economic_decision == "Banana Banana":
+            print("Shopkeeper: Oooh, the Banana Banana. That's an interesting one. Not only is it free, but the Banana Banana is a universal companion that will permanently give you a 1.25 times damage boost. However, after purchasing him, you will have the purchase to eat it. DO NOT EAT THE BANANA BANANA.")
+            sleep(delay)
+            eat_the_Banana_Banana = input("Banana Banana: Will you eat me? Yes/No: ")
+            if eat_the_Banana_Banana == "Yes":
+                print("Narrator: As you go to eat the Banana Banana, the Banana Banana eats you. You have now lost.")
+                exit()
+            elif eat_the_Banana_Banana == "No":
+                print("You and the Banana Banana are now best buds forever! Enjoy the damage boost!")
+                sleep(delay)
+                print("Banana Banana: Yay! Hello Kong, I'm here to help you with whatever you need!")
+        elif economic_decision == "Go Back":
+            break
+        else:
+            print("Narrator: I give up. I told you to listen to the shop. Now you have lost, and it's all your fault.")
+            exit()
+        if banana_bucks < 0:
+            print("Shopkeeper: This is what you get for overbuying.")
+            exit()
+store()
+print("Narrator: Congratulations! You have now finished the Fruity Fields level! To unlock the rest of the game, please donate a sum greater $100 to worship the great Mr. Whalen.")
