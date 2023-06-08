@@ -1,4 +1,5 @@
 from time import sleep
+import blackerjack
 delay = 3
 
 print("Narrator: Welcome to King Kong's Greatest Ace! The Bird Mafia has taken over Bananaland, and is using their corrupt values and powerful associates to poop on as many cars as possible. As King Kong, you will need to traverse the city and find a way to defeat the Bird Mafia once and for all. However, you will need to fight them not with guns, knives, or fists, but with knowledge, cunningness, and deception in a game of blackjack. Now, as you enter Bananaland for the first time, looking to create change, you walk into a local pub and find Big Bird standing there, serving customers.")
@@ -30,7 +31,7 @@ elif tutorial == "N":
     tutorial_game = input("Big Bird: Would you like to play a warmup round with me to make sure you understand the rules? Y (EASY) / N (HARD): ")
     if tutorial_game == "Y":
         mode = "NORMAL"
-        import blackjack
+        blackerjack.blackjack()
     elif tutorial_game == "N":
         mode = "HARD"
         print("Big Bird: That was very rude of you.")

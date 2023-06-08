@@ -1,8 +1,7 @@
 import random
 from time import sleep
 
-players_hand = []
-opponents_hand = []
+
 cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
 Tens=['10','Jack','Queen','King']
 suits = ["Michael Whalen", "Gabriel Liberov", "Izzy Zoltan", "Andrew Rosini"]
@@ -21,6 +20,8 @@ def card():
 
 c=card() 
 def blackjack():
+    players_hand = []
+    opponents_hand = []
     def draw(facing,hand):
         c.cardValue = random.choice(cards)
         if c.cardValue == 10:
@@ -89,8 +90,10 @@ def blackjack():
     else: 
         print('Oh no! You busted.')#win/loss 
 
-    if player_value>21 or (opponent_value>player_value and opponent_value<=21):
+    if player_value>21:
         c.wl='loss' 
+    elif (opponent_value>player_value and opponent_value<=21):
+        c.wl='loss'
     elif player_value==opponent_value:
         c.wl='tie'
     else:

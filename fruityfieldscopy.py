@@ -2,7 +2,7 @@ import blackerjack
 from time import sleep
 import classescopy
 from FIGHT import fight
-delay=3
+delay=0
 players_health=100
 
 print("Narrator: You stroll out of the bar, eventually making your way to the neighborhood of Fruity Fields. There, you run into your sidekick, Australian Henriques.")
@@ -39,29 +39,13 @@ print("Lil Nas X: Eh? I haven't lost since I began, yeah.")
 sleep(delay)
 print(f"Narrator: In Bananaland, when you accept a challenge from an opponent, their stats will flash on your screen. Furthermore, you currently have {players_health} health. You must gamble a certain amount of health, and you will either lose it or absorb your opponents health. Your opponent will automatically gamble the same amount of health as you, unless they are a hit opponent, who you will have to defeat once for each number of hits.")
 sleep(delay)
-gamble = 10
 print("Narrator: Normally, you will have to gamble a certain amount of health to lower an enemy. However, Lil Nas X is a special hit boss, so your gamble will automatically be 10 per 1 hit.")
 sleep(delay)
 
 Lil_Nas_X = classescopy.Boss("Lil_Nas_X", 1, "Magic Orb", "Fruity Fields", False)
-print(Lil_Nas_X)
 sleep(delay)
 
-fight(Lil_Nas_X,"Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.","Lil Nas X: Nice try, but this one is for the champions. And I haven't lost since I began yeah.","Lil Nas X: How could you have possibly defeated me, when I haven't lost since I began, yeah? I guess I'll help you now that you have proven yourself worthy.")
-play=True #START HERE WHEN YOU EDIT AGAIN
-while play==True:
-        
-        blackerjack.blackjack()
-        if blackerjack.c.wl=='loss':
-            print("Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.")
-
-            
-        elif blackerjack.c.wl=='tie':
-            print("Lil Nas X: Nice try, but this one is for the champions. And I haven't lost since I began yeah.")
-           
-        else:
-            print("Lil Nas X: How could you have possibly defeated me, when I haven't lost since I began, yeah? I guess I'll help you now that you have proven yourself worthy.")
-            play=False
+fight(players_health,Lil_Nas_X,"Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.","Lil Nas X: Nice try, but this one is for the champions. And I haven't lost since I began yeah.","Lil Nas X: How could you have possibly defeated me, when I haven't lost since I began, yeah? I guess I'll help you now that you have proven yourself worthy.","I am getting rusty huh? Guess I got to hit the old town road again.")
 
 sleep(delay)
 print("Lil Nas X: Okay, so you said you need to bring about the drums of liberation. How exactly do you plan to take down the bird mafia?")
@@ -101,34 +85,9 @@ sleep(delay)
 henchman=classescopy.Henchman(classescopy.random_bird, 30, "Feather Baton")
 sleep(delay)
 
-play=True
-while play==True:
+fight(players_health,henchman,"Narrator: The henchman wacks you with his baton, grinning as he slowly defeats you.",'Narrator: King Kong and the henchman are at a standstil, trying to defeat one another.',"Australian Henriques: Watch out, this Yank's coming back for more.","Boom. Scumbag- down.")
 
-    gambledHealth=int(input(f"Narrator: How much health would you like to gamble on the fight? You currently have {players_health} health: "))
-
-    blackerjack.blackjack()
-    if blackerjack.c.wl=='Loss:'
-        print("Narrator: The henchman wacks you with his baton, grinning as he slowly defeats you.")
-        players_health-=gambledHealth
-    
-    elif blackerjack.c.wl=='tie':
-        print('Narrator: King Kong and the henchman are at a standstil, trying to defeat one another.')
-    else:
-
-        henchman.health-=gambledHealth     
-        print("Australian Henriques: Watch out, this Yank's coming back for more.")
-        sleep(delay)
-        print(f"Narrator: The henchman you are facing is now on {henchman.health} health.")
-            
-        if henchman.health < 1:
-                print("King Kong: Bam. Scumbag down.")
-                play=False
-        elif players_health<1:
-            print("You may have been defeated. But there's always another chance. Here, try again.")
-            players_health=100
-            print('Try again:')
-
-print(f"Narrator: Your health is now {health}. You will need to survive the rest of the level on {health} health.")
+print(f"Narrator: Your health is now {players_health}. !Good luck")
 sleep(delay)
 print("Narrator: Panting from your fight with the henchman, you look around to see police barricades, but you can't see how many policeman are blocking each exit.")
 sleep(delay)
@@ -139,6 +98,7 @@ sleep(delay)
 print("Australian Henriques: Mate, either make a decision or take your final L... but hurry up all the same.")
 sleep(delay)
 right_or_left = input("Narrator: Do you want to go right or left? One direction has more enemies than the other, but you will have to guess which. Right/Left: ").upper()
+enforcer = classescopy.Enforcer(classescopy.random_bird, 50, "Feather SMG")
 
 if right_or_left == "RIGHT":
     print("Narrator: Nice choice. As you and Australian Henriques run at the barricade, you see that 2 henchman and 1 enforcer are preventing your passage.")
@@ -147,112 +107,17 @@ if right_or_left == "RIGHT":
     sleep(delay)
     print("King Kong: For sure.")
     sleep(delay)
-    print(henchman)
-    sleep(delay)
-    
-elif right_or_left == "LEFT ":
-    print("Narrator: Nice choice. As you and Australian Henriques run at the barricade, you see that 4 henchman and 2 enforcers are preventing your passage.")
-    sleep(delay)
-    print("Australian Henriques: 2 henchman and 1 enforcer each, mate. Damn, this'll be tricky.")
-    sleep(delay)
-    print(henchman)
-    sleep(delay)
-    print(henchman)
-    
-
-def enforcer_fight():
-    global health
-    global new_health
-    global enforcer_health
-    placeholder = 0.1
-    while placeholder != 0:
-        blackjack()
-        if players_sum > 21:
-            print("Narrator: You grunt in pain as one of the enforcer's feather bullets pierces your skin.")
-            new_health = health - gamble
-            health = new_health
-            if health <= 0:
-                print("You are out of health, and your game is over.")
-                break
-        elif players_sum < opponents_sum and opponents_sum < 21:
-            print("Narrator: You grunt in pain as one of the enforcer's feather bullets pierces your skin.")
-            new_health = health - gamble
-            health = new_health
-            if health <= 0:
-                print("You are out of health, and your game is over.")
-                break
-        elif opponents_sum > 21:
-            enforcer_health = enforcer_health - gamble
-            while enforcer_health > 0:
-                print("Australian Henriques: This guy's a fiesty one. He's probably a Brit.")
-                sleep(delay)
-                print(f"Narrator: The enforcer you are facing is now on {enforcer_health} health.")
-                enforcer_fight()
-            if enforcer_health <= 0:
-                    print("King Kong: Sit down... permanently. No one messes with the Kong and gets away with it.")
-                    break
-
-while right_or_left == "Right":
-    gamble = int(input(f"How much would you like to gamble on the fight? You currently have {health} health. Enter here: "))
-    sleep(delay)
-    henchman_fight()
-    if health <= 0:
-        break
-    henchman_health = 30
+    fight(players_health,henchman,"Narrator: The henchman wacks you with his baton, grinning as he slowly defeats you.",'Narrator: King Kong and the henchman are at a standstil, trying to defeat one another.',"Australian Henriques: Watch out, this Yank's coming back for more.","Boom. Scumbag- down.")
     sleep(delay)
     print("Narrator: You look over and see that, tragically, the enforcer has bested Australian Henriques after he [Australian Henriques] defeated a henchman.")
     sleep(delay)
     print("King Kong: No... Australian Henriques... You'll pay for this, bird.")
     sleep(delay)
-    gamble = int(input(f"How much would you like to gamble on the fight? You currently have {health} health. Enter here: "))
-    sleep(delay)
-    print(enforcer)
-    sleep(delay)
-    enforcer_fight()
-while right_or_left == "Left":
-    print("Narrator: Australian Henriques runs at the barricade, dueling two of the henchman in an intense game of blackjack. However, Australian Henriques busts against the second and is knocked out cold by a flying feather baton.")
-    sleep(delay)
-    print("King Kong: Oh... this is bad.")
-    sleep(delay)
-    print("Narrator: You will have to defeat three henchman and one enforcer to make is past the police barricade.")
-    sleep(delay)
-    gamble = int(input(f"How much would you like to gamble on the fight? You currently have {health} health. Enter here: "))
-    sleep(delay)
-    print(henchman)
-    sleep(delay)
-    henchman_fight()
-    if health <= 0:
-        break
-    henchman_health = 30
-    sleep(delay)
-    gamble = int(input(f"How much would you like to gamble on the fight? You currently have {health} health. Enter here: "))
-    sleep(delay)
-    print(henchman)
-    sleep(delay)
-    henchman_fight()
-    if health <= 0:
-        break
-    henchman_health = 30
-    sleep(delay)
-    gamble = int(input(f"How much would you like to gamble on the fight? You currently have {health} health. Enter here: "))
-    sleep(delay)
-    print(henchman)
-    sleep(delay)
-    henchman_fight()
-    if health <= 0:
-        break
-    sleep(delay)
-    gamble = int(input(f"How much would you like to gamble on the fight? You currently have {health} health. Enter here: "))
-    sleep(delay)
-    print(enforcer)
-    sleep(delay)
-    enforcer_fight()
+    fight(players_health,enforcer,"Narrator: You grunt in pain as one of the enforcer's feather bullets pierces your skin.","Marrator: The battlefield is at a standstill. You and your opponent wait.","Australian Henriques: This guy sure is a fiesty one. He's probably a Brit.")
 
-while health <= 0:
-    break
-henchman_health = 30
-enforcer_health = 90
-
+print('Finally, one last enforcer to take care of. ')
+sleep(delay)
+fight(players_health,enforcer,"Narrator: You grunt in pain as one of the enforcer's feather bullets pierces your skin.","Marrator: The battlefield is at a standstill. You and your opponent wait.","Australian Henriques: This guy sure is a fiesty one. He's probably a Brit.")
 print("Narrator: You scoop up Australian Henriques, sprinting away from the police chasing you.")
 sleep(delay)
 print("Narrator: Once you have gained a good bit of distance between yourself and the Bird Mafia, you turn into a dark alleyway, trying to find a way to get Australian Henriques to a hospital without being noticed.")
@@ -271,50 +136,12 @@ print("Tweety: Fine by me... let's do this, you overgrown monkey.")
 sleep(delay)
 print("Narrator: Boss fights are a bit more difficult than fights against henchman or enforcers because you can't gamble more health than you have, but you will replenish any health you have lost after the fight.")
 sleep(delay)
-print(f"Narrator: For reference, you are currently on {health} health.")
+print(f"Narrator: For reference, you are currently on {players_health} health.")
 sleep(delay)
-print(Tweety)
+Tweety = classescopy.Boss("Tweety", 100, "HAND", "Fruity Fields", True)
 sleep(delay)
-gamble = int(input(f"How much would you like to gamble against Tweety? Remember than it cannot be more than your current health, which is {health} health. Enter your gamble here: "))
 
-def tweety_fight():
-    global health
-    global new_health
-    global tweety_health
-    while gamble <= health:
-        blackjack()
-        if players_sum > 21:
-            print("Tweety: I tink I taw a puddycat... oh wait... it's just you.")
-            new_health = health - gamble
-            health = new_health
-            if health <= 0:
-                print("You are out of health, and your game is over.")
-                break
-        elif players_sum < opponents_sum and opponents_sum < 21:
-            print("Tweety: I tink I taw a puddycat... oh wait... it's just you.")
-            new_health = health - gamble
-            health = new_health
-            if health <= 0:
-                print("You are out of health, and your game is over.")
-                break
-        elif opponents_sum > 21:
-            tweety_health = enforcer_health - gamble
-            while tweety_health > 0:
-                print("King Kong: Revenge is a dish best served with yellow canary on top.")
-                sleep(delay)
-                print(f"Narrator: Tweety is now on {tweety_health} health.")
-                enforcer_fight()
-            if tweety_health <= 0:
-                    print("King Kong: One of five leaders down... gotta get Australian Henriques some medical treatment.")
-                    break
-    while gamble > health:
-        gamble = int(input(f"How much would you like to gamble against Tweety? Remember than it cannot be more than your current health, which is {health} health. Enter your gamble here: "))
-        tweety_fight()
-tweety_fight()
-
-while health <= 0:
-    break
-
+fight(players_health,Tweety,"Tweety: I tink I taw a puddycat... oh wait... it's just you.","Narrator: The battle is intense yet... no damage seems to be done.","King Kong: Revenge is a dish best served with yellow canary on top.","King Kong: One of five leaders down... gotta get Australian Henriques some medical treatment.")
 print("Narrator: As you watch Tweety fall to the floor, defeated, you scoop up Australian Henriques and sprint towards the nearest hospital. However, halfway there, you are pulled into an alley.")
 sleep(delay)
 print("Nurse: Hello, Kong.")
@@ -329,4 +156,10 @@ print("King Kong: His name is Australian Henriques. Please send him to Bobby Hil
 sleep(delay)
 print("Nurse: Wonderful. Would you like to check out our shop now, perhaps buy some helpful weapons.")
 sleep(delay)
-print("Narrator: You travel to the shop room of the resistance base.")"""
+print("Narrator: You travel to the shop room of the resistance base.")
+sleep(delay)
+print('Narrator: King Kong buys a drumset.')
+sleep(delay)
+print('King Kong: I did it Nas, I obtained the Drums of liberation.')
+sleep(delay)
+print('Australian Henriques: Crikey! That\'s the end of this one!' )
