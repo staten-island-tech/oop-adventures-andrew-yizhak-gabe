@@ -1,5 +1,5 @@
 from time import sleep
-import blackerjack
+import blackjack
 delay=3
 
 
@@ -11,12 +11,12 @@ def fight(players_health,opponent,loss,tie,win,gameover):
         gambledHealth=int(input(f"Narrator: How much health would you like to gamble on the fight? You currently have {players_health} health: "))
         while gambledHealth>players_health:
              gambledHealth=int(input(f"Narrator:Sorry, please gamble an amount that is less than or equal to your current health. \n How much health would you like to gamble on the fight? You currently have {players_health} health: "))
-        blackerjack.blackjack()
-        if blackerjack.c.wl=='loss':
+        blackjack.blackjack()
+        if blackjack.c.wl=='loss':
             print(loss)
             players_health-=gambledHealth
         
-        elif blackerjack.c.wl=='tie':
+        elif blackjack.c.wl=='tie':
             print(tie)
         else:
 

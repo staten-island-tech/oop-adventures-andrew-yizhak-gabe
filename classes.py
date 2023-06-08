@@ -68,11 +68,10 @@ def create_new_boss(name, health, weapon, region, replenish):
 
 random_bird = random.choice(birds)
 random_region = random.choice(regions)
-
+"""
 henchman = Henchman(random_bird, 30, "Feather Baton")
 enforcer = Enforcer(random_bird, 50, "Feather SMG")
-Lil_Nas_X = Boss("Lil_Nas_X", 1, "Magic Orb", "Fruity Fields", False)
-Tweety = Boss("Tweety", 100, "Bird Cage", "Fruity Fields", True) #Player Health After: 150#
+Tweety = Boss("Tweety", 100, "HAND", "Fruity Fields", True) #Player Health After: 150#
 Steve = Boss("S.T.E.V.E", 200, "HAND", 'Ripe Ravine', True) #Player Health After: 250#
 Terrence = Boss("Terrence", 400, "HAND", 'Plantain Plateau', True) #Player Health After: 450#
 Private = Boss("Private", 700, "HAND", "NewNana", True) #Player Health After: 800#
@@ -80,4 +79,4 @@ Rico = Boss("Rico", 1100, "HAND", "NewNana", True) #Player Health After: 1350#
 Kowalski = Boss("Kowalski", 1800, "HAND", "NewNana", True) #Player Health After: 2250#
 Skipper = Boss("Skipper", 3000, "HAND", "NewNana", True) #Player Health After: 3750#
 King_Ghidorah = Boss("King Ghidorah", 5000, "HAND", 'Potassium Palace', True) #Player Health After: 6500#
-Biggest_Bird = Boss("Biggest Bird", 10000, "HAND", "Big Bird's Bar", False)
+Biggest_Bird = Boss("Biggest Bird", 10000, "HAND", "Big Bird's Bar", False)"""

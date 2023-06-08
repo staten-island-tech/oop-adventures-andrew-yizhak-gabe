@@ -1,10 +1,48 @@
-import blackerjack
+import blackjack
 from time import sleep
-import classescopy
+import classes
 from FIGHT import fight
 delay=0
 players_health=100
 
+print("Narrator: Welcome to King Kong's Greatest Ace! The Bird Mafia has taken over Bananaland, and is using their corrupt values and powerful associates to poop on as many cars as possible. As King Kong, you will need to traverse the city and find a way to defeat the Bird Mafia once and for all. However, you will need to fight them not with guns, knives, or fists, but with knowledge, cunningness, and deception in a game of blackjack. Now, as you enter Bananaland for the first time, looking to create change, you walk into a local pub and find Big Bird standing there, serving customers.")
+tutorial = input("Is this your first time playing? Y/N: ")
+if tutorial == "Y":
+    print("Narrator: Okay. As previously stated, you will need to defeat your enemies through the card game known as blackjack. Big Bird will now give you a brief explanation of how to play Blackjack.")
+    sleep(delay)
+    print("Narrator: You now stumble into Big Bird's Bar, where Big Bird is waiting at the bar, ready to teach you how to play.")
+    sleep(delay)
+    print("Big Bird: Hello! I will now teach you how to play blackjack. While blackjack is very simple, I will teach you the rules of the game and explain some easy strategies to make you better.")
+    sleep(delay)
+    print("Big Bird: Blackjack is a simple game. Your goal is to get as close to a total of 21 without going over. The game will start with you and a dealer sitting across from one another. The dealer will give both you and him/herself a face-down card and a face-up card. You can now read your face down card.")
+    sleep(delay)
+    print("Big Bird: After reading your two cards, add their values together, and determine whether or not you need more cards. If you are not sure what your total value is, remember that numbers 1-9 are taken at their face value and the number 10 and all face cards (jack, queen, and king) are worth 10. Aces are unique because they can be valued at either 1 OR 11 based on your situation. You get to decide.")
+    sleep(delay)
+    print("Big Bird: A second or two after you read your cards, the dealer will ask you if you want to HIT or STAND. HIT means you will draw another card, and STAND means that you are done receiving cards. You can HIT as many times as you want, but if you go over a total of 21, you BUST and are automatically out.")
+    sleep(delay)
+    print("Big Bird: Furthermore, if you STAND but have less total points than the dealer, you lose. Finally, if you immediately draw an ace and a jack, you get BLACKJACK and automatically win the round.")
+    sleep(delay)
+    print("Big Bird: OK! You now have a basic idea of how blackjack works.")
+    
+    
+elif tutorial == "N":
+    print('Big Bird: That wasn\'t nice. I\'ll give you a second chance.')
+tutorial_game = input("Big Bird: Would you like to play a warmup round with me to make sure you understand the rules? Y/N: ")
+if tutorial_game == "Y":
+        mode = "NORMAL" 
+        print('Okie dokie then! Let\'s play!')
+        blackjack.blackjack()
+        if blackjack.c.wl=='loss':
+             print('Big bird: Good game buckaroo! I won! ')
+        elif blackjack.c.wl=='tie':
+             print('Big Bird: Close one buddy! We tied! ')
+        else:
+             print('Big Bird:Oh, you won! Good job!')
+elif tutorial_game == "N":
+    mode = "HARD" #Yeah yeah. This was never used in the end. If this was the full game, this would basically trigger the true ending.
+    print("Big Bird: That was very rude of you.")
+    
+sleep(delay)
 print("Narrator: You stroll out of the bar, eventually making your way to the neighborhood of Fruity Fields. There, you run into your sidekick, Australian Henriques.")
 sleep(delay)
 print("Australian Henriques: Bloody Yanks! I don't know why you're back here in Bananaland, with your bounty and all, but you should go.")
@@ -42,7 +80,7 @@ sleep(delay)
 print("Narrator: Normally, you will have to gamble a certain amount of health to lower an enemy. However, Lil Nas X is a special hit boss, so your gamble will automatically be 10 per 1 hit.")
 sleep(delay)
 
-Lil_Nas_X = classescopy.Boss("Lil_Nas_X", 1, "Magic Orb", "Fruity Fields", False)
+Lil_Nas_X = classes.Boss("Lil_Nas_X", 1, "Magic Orb", "Fruity Fields", False)
 sleep(delay)
 
 fight(players_health,Lil_Nas_X,"Lil Nas X: Still undefeated, yeah, cause I haven't lost since I began. You can keep trying to beat me, but you won't be able to.","Lil Nas X: Nice try, but this one is for the champions. And I haven't lost since I began yeah.","Lil Nas X: How could you have possibly defeated me, when I haven't lost since I began, yeah? I guess I'll help you now that you have proven yourself worthy.","I am getting rusty huh? Guess I got to hit the old town road again.")
@@ -82,7 +120,7 @@ print("Henchman: Kong... you are going to regret pulling that maneuver.")
 sleep(delay)
 print("King Kong: Squawk, squawk then birdie... let's do this.")
 sleep(delay)
-henchman=classescopy.Henchman(classescopy.random_bird, 30, "Feather Baton")
+henchman=classes.Henchman(classes.random_bird, 30, "Feather Baton")
 sleep(delay)
 
 fight(players_health,henchman,"Narrator: The henchman wacks you with his baton, grinning as he slowly defeats you.",'Narrator: King Kong and the henchman are at a standstil, trying to defeat one another.',"Australian Henriques: Watch out, this Yank's coming back for more.","Boom. Scumbag- down.")
@@ -98,7 +136,7 @@ sleep(delay)
 print("Australian Henriques: Mate, either make a decision or take your final L... but hurry up all the same.")
 sleep(delay)
 right_or_left = input("Narrator: Do you want to go right or left? One direction has more enemies than the other, but you will have to guess which. Right/Left: ").upper()
-enforcer = classescopy.Enforcer(classescopy.random_bird, 50, "Feather SMG")
+enforcer = classes.Enforcer(classes.random_bird, 50, "Feather SMG")
 
 if right_or_left == "RIGHT":
     print("Narrator: Nice choice. As you and Australian Henriques run at the barricade, you see that 2 henchman and 1 enforcer are preventing your passage.")
@@ -138,7 +176,7 @@ print("Narrator: Boss fights are a bit more difficult than fights against henchm
 sleep(delay)
 print(f"Narrator: For reference, you are currently on {players_health} health.")
 sleep(delay)
-Tweety = classescopy.Boss("Tweety", 100, "HAND", "Fruity Fields", True)
+Tweety = classes.Boss("Tweety", 100, "HAND", "Fruity Fields", True)
 sleep(delay)
 
 fight(players_health,Tweety,"Tweety: I tink I taw a puddycat... oh wait... it's just you.","Narrator: The battle is intense yet... no damage seems to be done.","King Kong: Revenge is a dish best served with yellow canary on top.","King Kong: One of five leaders down... gotta get Australian Henriques some medical treatment.")
@@ -162,4 +200,6 @@ print('Narrator: King Kong buys a drumset.')
 sleep(delay)
 print('King Kong: I did it Nas, I obtained the Drums of liberation.')
 sleep(delay)
-print('Australian Henriques: Crikey! That\'s the end of this one!' )
+print('Australian Henriques: Crikey! That\'s the end of this story!' )
+sleep('delay')
+print("Izzy: Well, thats the end. I know its a bit of a cop-out ending, but I don't think you or I want to see this dumpsterfire of a story run for any longer.")
